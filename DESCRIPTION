@@ -1,0 +1,45 @@
+Package: OLSr
+Title: Retrieving Information from the 'EBI' Ontology Lookup Service ('OLS')
+Version: 0.0.0.9000
+Authors@R:
+    c(person(
+        "Martin", "Morgan", role = c("aut", "cre"),
+        email = "mtmorgan.xyz@gmail.com",
+        comment = c(ORCID = "0000-0002-5874-8148")
+    ), person(
+        "Chan Zuckerberg Initiative DAF CZF2019-002443",
+        role = "fnd"
+    ), person(
+        "NIH NCI ITCR U24CA180996",
+        role = "fnd"
+    ))
+Description: The Ontology Lookup Service ('OLS') is a repository of
+    biomedical ontologies provided by the European Bioinformatics
+    Institute ('EMBL-EBI'). 'OLSr' provides an interface to this
+    service, allowing discovery of ontologies, terms, and
+    relations. Results are presented in a 'tidy' framework, so that
+    manipulation tasks are easily accomplished with verbs such as
+    'filter()', 'select()', and 'mutate()'. An effort is made to
+    integrate with other packages useful for more comprehensive
+    biological and ontological analysis.
+License: Artistic-2.0
+Depends: dplyr
+Imports:
+    BiocBaseUtils,
+    rjsoncons,
+    jsonlite,
+    httr2,
+    glue,
+    progress,
+    tidyr,
+    memoise,
+    cachem,
+    spdl
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
+Suggests:
+    testthat,
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr

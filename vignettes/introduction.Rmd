@@ -1,0 +1,50 @@
+---
+title: "Intorduction to OLSr"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Intorduction to OLSr}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# Installation
+
+Install [OLSr][] from GitHub using the [remotes][] package.
+
+```{r, eval = FALSE}
+if (!"remotes" in rownames(installed.packages()))
+    install.packages("remotes", repos = "https://cran.r-project.org")
+remotes::install_github("OLSr")
+```
+
+Load the library into the current session. This also attaches
+[dplyr][].
+
+```{r setup, message = FALSE}
+library(OLSr)
+```
+
+[OLSr]: https://mtmorgan.github.io/OLSr
+[remotes]: https://CRAN.R-project.org/package=remotes
+[dplyr]: https://CRAN.R-project.org/package=dplyr
+
+# Ontologies & Terms
+
+# Relatives
+
+# Hierarchical Data
+
+# Cache Management
+
+# Session Information {.unnumbered}
+
+```{r}
+sessionInfo()
+```
