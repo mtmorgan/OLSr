@@ -21,7 +21,7 @@ Install [OLSr][] from GitHub using the [remotes][] package.
 ```{r, eval = FALSE}
 if (!"remotes" in rownames(installed.packages()))
     install.packages("remotes", repos = "https://cran.r-project.org")
-remotes::install_github("OLSr")
+remotes::install_github("mtmorgan/OLSr")
 ```
 
 Load the library into the current session. This also attaches
