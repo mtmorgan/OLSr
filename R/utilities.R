@@ -34,3 +34,13 @@ as_description_string <-
     string[!nzchar(string)] <- NA_character_
     string
 }
+
+## user agent for http requests
+
+pkg_user_agent <-
+    function()
+{
+    file_path <- system.file(package = PACKAGE_NAME, "DESCRIPTION")
+    dcf <- read.dcf(file_path, c("Package", "Version", "URL"))
+    glue("{Package}/{Version} ({URL})", .envir = as.data.frame(dcf))
+}

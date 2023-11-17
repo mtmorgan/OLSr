@@ -1,5 +1,5 @@
-#' @importFrom httr2 request req_perform resp_check_status
-#'     resp_body_string
+#' @importFrom httr2 request req_user_agent req_perform
+#'     resp_check_status resp_body_string
 #'
 #' @importFrom memoise memoise
 ols4_request_one <-
@@ -9,6 +9,7 @@ ols4_request_one <-
 
     response <-
         request(url) |>
+        req_user_agent(pkg_user_agent()) |>
         req_perform()
 
     body <-
