@@ -42,7 +42,7 @@
     
     <a class="navbar-brand me-2" href="index.html">OLSr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9001</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.1</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -59,6 +59,9 @@
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
     <a class="dropdown-item" href="articles/introduction.html">Introduction to OLSr</a>
   </div>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="news/index.html">Changelog</a>
 </li>
       </ul>
 <form class="form-inline my-2 my-lg-0" role="search">
@@ -79,16 +82,40 @@
   </div>
 </nav><div class="container template-home">
 <div class="row">
-  <main id="main" class="col-md-9">
-The Ontology Lookup Service ('OLS') is a repository of
-    biomedical ontologies provided by the European Bioinformatics
-    Institute ('EMBL-EBI'). 'OLSr' provides an interface to this
-    service, allowing discovery of ontologies, terms, and
-    relations. Results are presented in a 'tidy' framework, so that
-    manipulation tasks are easily accomplished with verbs such as
-    'filter()', 'select()', and 'mutate()'. An effort is made to
-    integrate with other packages useful for more comprehensive
-    biological and ontological analysis.
+  <main id="main" class="col-md-9"><div class="section level1">
+<div class="page-header"><h1 id="olsr">OLSr<a class="anchor" aria-label="anchor" href="#olsr"></a>
+</h1></div>
+<!-- badges: start -->
+<!-- badges: end -->
+<p>The Ontology Lookup Service (<a href="https://www.ebi.ac.uk/ols4/" class="external-link">OLS</a>) is a repository of biomedical ontologies provided by the European Bioinformatics Institute (‘EMBL-EBI’). <a href="https://mtmorgan.github.io/OLSr">OLSr</a> provides an interface to this service, allowing discovery of ontologies, terms, and relations. Results are presented in a ‘tidy’ framework, so that manipulation tasks are easily accomplished with verbs such as ‘filter()’, ‘select()’, and ‘mutate()’. An effort is made to integrate with other packages useful for more comprehensive biological and ontological analysis.</p>
+<div class="section level2">
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h2>
+<p>Install the development version of <a href="https://mtmorgan.github.io/OLSr">OLSr</a> with</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="st">"remotes"</span> <span class="cf">in</span> <span class="fu">rownames</span>(<span class="fu">installed.packages</span>()))</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">install.packages</span>(<span class="st">"remotes"</span>, <span class="at">repos =</span> <span class="st">"https://cran.r-project.org"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"mtmorgan/OLSr"</span>)</span></code></pre></div>
+<p>Attach the installed package to your <em>R</em> session with</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://mtmorgan.github.io/OLSr/">OLSr</a></span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="use">Use<a class="anchor" aria-label="anchor" href="#use"></a>
+</h2>
+<p>The [introductory vignette][] outlines common use cases, including</p>
+<ul>
+<li>Discovering ontologies available in the OLS.</li>
+<li>Retrieving terms within an ontology</li>
+<li>Retrieving relatives (parents, ancestors, children, descendents) of terms.</li>
+</ul>
+<p><a href="https://mtmorgan.github.io/OLSr">OLSr</a> uses a cache to minimize the number of calls to the OLS; the introductory vignette includes a short section discussing cache management.</p>
+</div>
+<div class="section level2">
+<h2 id="next-steps">Next steps<a class="anchor" aria-label="anchor" href="#next-steps"></a>
+</h2>
+<p>See the [introductory vignette][] for next steps.</p>
+</div>
+</div>
   </main><aside class="col-md-3"><div class="links">
 <h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
