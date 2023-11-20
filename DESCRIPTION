@@ -26,7 +26,7 @@ License: Artistic-2.0
 Depends: dplyr
 Imports:
     BiocBaseUtils,
-    rjsoncons (>= 0.1.0.9200),
+    rjsoncons (>= 1.0.0.9200),
     jsonlite,
     httr2,
     glue,
@@ -43,5 +43,7 @@ Suggests:
     BiocStyle,
     knitr,
     rmarkdown
+Remotes: github::mtmorgan/rjsoncons
 VignetteBuilder: knitr
+BugReports: https://github.com/mtmorgan/OLSr/issues
 URL: https://mtmorgan.github.io/OLSr/
