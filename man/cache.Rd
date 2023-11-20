@@ -51,7 +51,7 @@ of the response. Circumvent this risk by manually manipulating the
 cache, e.g., removing objects that a known to be too old.
 
 OLSr uses the memoise \url{https://CRAN.R-project.org/package=memoise}
-and cachem \url{https://CRAN.R-projectorg/package=cachem} packages to
+and cachem \url{https://CRAN.R-project.org/package=cachem} packages to
 implement the cache. The disk cache is implemented using cachem's
 \code{cache_disk()} function using the default cache size (1 Gb) and
 \code{"lsu"} ('least recently used') eviction policy. Objects remain in

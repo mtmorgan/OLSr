@@ -1,33 +1,51 @@
 ---
-title: "Intorduction to OLSr"
-output: rmarkdown::html_vignette
+title: "Introduction to OLSr"
+author:
+- name: Martin Morgan
+  affiliation: Roswell Park Comprehensive Cancer Center, Buffalo, NY, US
+output: BiocStyle::html_document
 vignette: >
-  %\VignetteIndexEntry{Intorduction to OLSr}
+  %\VignetteIndexEntry{Introduction to OLSr}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r, include = FALSE}
+```{r setup, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
 ```
 
+The [Ontology Lookup Service][OLS] ('OLS') is a repository of
+biomedical ontologies provided by the European Bioinformatics
+Institute (EMBL-EBI). [OLSr][] provides an interface to the OLS
+service, allowing discovery of ontologies, terms, and
+relations. Results are presented in a 'tidy' framework, so that
+manipulation tasks are easily accomplished with verbs such as
+'filter()', 'select()', and 'mutate()'. An effort is made to integrate
+with other packages useful for more comprehensive biological and
+ontological analysis.
+
+[OLS]: https://www.ebi.ac.uk/ols4/
+
+Written: 20 November, 2023
+
 # Installation
 
 Install [OLSr][] from GitHub using the [remotes][] package.
 
-```{r, eval = FALSE}
+```{r install, eval = FALSE}
 if (!"remotes" in rownames(installed.packages()))
     install.packages("remotes", repos = "https://cran.r-project.org")
 remotes::install_github("mtmorgan/OLSr")
 ```
 
-Load the library into the current session. This also attaches
-[dplyr][].
+Attach the library to the current session. Most functions in [OLSr][]
+return results as a `tibble`, so the [dplyr][] package is also
+attached.
 
-```{r setup, message = FALSE}
+```{r library, message = FALSE}
 library(OLSr)
 ```
 
@@ -35,15 +53,254 @@ library(OLSr)
 [remotes]: https://CRAN.R-project.org/package=remotes
 [dplyr]: https://CRAN.R-project.org/package=dplyr
 
-# Ontologies & Terms
+# Ontologies
+
+Start by discovering ontologies available in the OLS.
+
+```{r ontologies}
+onto <- get_ontologies()
+onto
+```
+
+This vignette uses for examples the ontology with title 'Cell
+Ontology', used by the [CELLxGENE][] project to classify cell
+types. Find the record corresponding to this ontology, using
+`glimpse()` to provide a convenient view of the ontology description.
+
+[CELLxGENE]: https://cellxgene.cziscience.com
+
+```{r cell-ontology}
+onto |>
+    filter(title == "Cell Ontology" ) |>
+    glimpse()
+```
+
+Important information includes the 'id' of the ontology (used in many
+subsequent steps), the ontology home page, and the number of terms in
+the ontology.
+
+```{r, cell-ontology-2}
+onto |>
+    filter(title == "Cell Ontology") |>
+    select(id, homepage, numberOfTerms)
+```
+
+Information on individual ontologies is also available with
+`get_ontology()`; this record includes a link to the ontology page in
+the OLS. The home page is a good starting place for understanding the
+ontology in a more visual and interactive environment.
+
+```{r get-ontology}
+cl <- get_ontology("cl")
+glimpse(cl)
+
+cl |> pull("_links")
+```
+
+# Terms
+
+Terms are central to using an ontology. Retrieve all terms from the
+'cl' ontology. By default, only terms defined in the ontology *per se*
+are used; add the argument `all_ontologies = TRUE` to this and
+subsequent functions to also include terms referenced in other
+ontologies. This query can take several minutes to complete when first
+executed, but the result is cached locally (as discussed in greater
+detail below) so subsequent use is quick.
+
+```{r get-terms}
+terms <- get_terms("cl")
+terms
+```
+
+Glimpse the second term to get a sense of available information.
+
+```{r term-slice}
+terms |>
+    slice(1) |>
+    glimpse()
+```
+
+## Hierarchical data
+
+Some columns in the `terms` table represent hieararchical (relational,
+1:many mapping) data, e.g., the `in_subset` column
+
+```{r hierarchy}
+terms |>
+    select(label, obo_id, in_subset)
+```
+
+Individual terms apparently belong to 0 or more subsets.
+
+```{r in_subset-count}
+terms |>
+    count(lengths(in_subset))
+```
+
+The R for Data Science chapter on [hierarchical data][] suggests using
+[tidyr][] functions `unnest_wider()` and `unnest_longer()` to expand
+such data.
+
+[tidyr]: https://CRAN.R-project.org/package=tidyr
+
+```{r in_subset-unnest-longer}
+terms |>
+    select(in_subset, obo_id, label) |>
+    tidyr::unnest_longer(in_subset)
+```
+
+Defined subsets and the number of terms in each can be computed as
+
+```{r}
+terms |>
+    tidyr::unnest_longer(in_subset) |>
+    count(in_subset, sort = TRUE)
+```
+
+Use `filter()` with a helper function that summarizes subsets of
+individual terms to identify the `human_reference_atlas` subset. Using
+`vapply()` (rather than, e.g., `sapply()`) can be considered a best
+practice, so that the filter function is guaranteed to return a scalar
+logical value regardless of input length.
+
+```{r human_reference_atlas-subset}
+is_human_reference_atlas <- function(x)
+    vapply(x, \(x) any(x == "human_reference_atlas"), logical(1))
+
+human_reference_atlas <-
+    terms |>
+    filter(is_human_reference_atlas(in_subset))
+
+human_reference_atlas
+```
+
+There are `r NROW(human_reference_atlas)` terms in the
+`human_reference_atlas` subset.
+
+[hierarchical data]: https://r4ds.hadley.nz/rectangling
+
+## Individual terms
+
+Suppose we are interested in B cells. Discover term labels starting
+with `"B cell"`, selecting useful fields for display. For subsequent
+work, create a variable capturing the `obo_id` of the `"B cell"` term.
+
+```{r B-cell-terms}
+terms |>
+    filter(startsWith(label, "B cell")) |>
+    select(label, obo_id, description)
+b_cell <-
+    terms |>
+    filter(label == "B cell") |>
+    pull(obo_id)
+```
+
+Slightly richer information on individual terms is available with
+`get_term()`, using the ontology `id` and term `obo_id` as keys.
+
+```{r B-cell-term}
+get_term("cl", b_cell) |>
+    glimpse()
+```
 
 # Relatives
 
-# Hierarchical Data
+The functions `get_parents()` and `get_children()` retrieve parent and
+child terms of individual terms; `get_ancestors()` and
+`get_descendants()` return all ancestors (to the root of the ontology)
+or descendants (where the final term repreents a leaf). For B cells
+the ancestors are
 
-# Cache Management
+```{r b-cell-ancestors}
+b_cell_ancestors <-
+    get_ancestors("cl", b_cell)
+```
 
-# Session Information {.unnumbered}
+
+Ancestors and descendants also contain the `in_subset` column, so
+these groups are easily filtered to a particlur subset, e.g.,
+
+```{r b-cell-descendants-human-reference-atlas}
+b_cell_ancestors |>
+    filter(is_human_reference_atlas(in_subset))
+```
+
+Terms without children or descendants return a tibble without any
+rows.
+
+```{r}
+get_children("cl", "CL:0002350")
+get_descendants("cl", "CL:0002350")
+```
+
+# Cache management
+
+OLSr uses an on-disk cache to improve performance and
+reliability. Each query to the OLS server is cached on first use, so
+that subsequent responses can be read from the local disk. This
+greatly increases performance, and allows use of previously retrieved
+resources when off-line.
+
+OLSr uses the [memoise][] and [cachem][] packages to implement the
+cache. The disk cache is implemented using cachem's `cache_disk()`
+function using the default cache size (1 Gb) and `"lsu"` ('least
+recently used') eviction policy. Objects remain in the cache for 30
+days.
+
+[memoise]: https://CRAN.R-project.org/package=memoise
+[cachem]: https://CRAN.R-project.org/package=cachem
+
+A risk of using a cache is that the cache contains an 'old' version
+of the response. Circumvent this risk by manually manipulating the
+cache, e.g., removing objects that a known to be too old.
+
+Use `cache_directory()` to discover the location of the cache.
+
+```{r cache-directory}
+cache_directory()
+```
+
+This location follows conventions of `tools::R_user_dir()`. All files
+in this directory have been created by [OLSr][].
+
+`cache_info()` is a convenience function to summarize files in the
+cache.
+
+```{r cache-info}
+cache_info()
+```
+
+Each file represents the response to a single memoised function
+call. The file name is a hash of the function definition and
+arguments; it is not possible to associate individual files with
+specific function calls. Nonetheless, it can be informative to
+identify files modified more than, say 1 day ago, or the most recently
+modified file, or perhaps the total size of files in the cache.
+
+```{r cache-info-uses}
+## cache objects modified in the last 24 hours
+cache_info() |>
+    filter(mtime > Sys.time() - 24 * 60 * 60)
+
+## most recently modified file
+cache_info() |>
+    arrange(desc(mtime)) |>
+    slice(1)
+
+## total cache size
+cache_info() |>
+    summarize(size = sum(size)) |>
+    pull(size) |>
+    structure(class = "object_size") |>
+    format(units = "auto")
+```
+
+In special cases it may be useful to invalidate the cache using
+`unlink()` on the `cache_directory()`, or on invalidate particular
+records using `unlink()` on file paths created using `file.path()`,
+`cache_directory()` and individual `file` names from `cache_info()`.
+
+# Session information {.unnumbered}
 
 ```{r}
 sessionInfo()
