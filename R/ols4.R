@@ -49,7 +49,7 @@ ols4_request_perform <-
     repeat {
         response <- ols4_request_one(url)
         if (is.null(all_responses)) {
-            total_pages <- jmespath_to_r(response, "page.totalPages")
+            total_pages <- jmespath(response, "page.totalPages", as = "R")
             if (is.null(total_pages)) { # not paged
                 all_responses[[1]] <- ols4_response_to_tbl(response)
                 break
@@ -62,11 +62,12 @@ ols4_request_perform <-
             )
         }
 
-        page_number <- jmespath_to_r(response, "page.number") + 1L # 1-based R
+        page_number <- # 1-based R
+            jmespath(response, "page.number", as = "R") + 1L
         all_responses[[page_number]] <- ols4_response_nested_to_tbl(response)
         pb$tick()
 
-        if (!jmespath_to_r(response, "contains(keys(_links), 'next')"))
+        if (!jmespath(response, "contains(keys(_links), 'next')", as = "R"))
             break
         url <- jmespath(response, "_links.next.href")
     }
@@ -88,7 +89,7 @@ ols4_response_nested_to_tbl <-
         is_string(data)
     )
 
-    key <- jmespath_to_r(data, "keys(_embedded)", simplify = TRUE)
+    key <- jmespath(data, "keys(_embedded)", as = "R")
     if (!is_string(key)) {
         txt <- spdl::fmt(
             "expected length 1 'key', but is length {}", length(key)
