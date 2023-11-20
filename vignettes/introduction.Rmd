@@ -1,11 +1,11 @@
 ---
-title: "Introduction to OLSr"
+title: "1. Introduction to OLSr"
 author:
 - name: Martin Morgan
   affiliation: Roswell Park Comprehensive Cancer Center, Buffalo, NY, US
 output: BiocStyle::html_document
 vignette: >
-  %\VignetteIndexEntry{Introduction to OLSr}
+  %\VignetteIndexEntry{1. Introduction to OLSr}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -189,7 +189,7 @@ work, create a variable capturing the `obo_id` of the `"B cell"` term.
 terms |>
     filter(startsWith(label, "B cell")) |>
     select(label, obo_id, description)
-b_cell <-
+b_cell <- # "CL:0000236"
     terms |>
     filter(label == "B cell") |>
     pull(obo_id)
