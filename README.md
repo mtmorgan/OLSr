@@ -34,12 +34,18 @@ library(OLSr)
 
 ## Use
 
-The [introductory vignette][] outlines common use cases, including
+The [introductory vignette][intro] outlines common use cases,
+including
 
 - Discovering ontologies available in the OLS.
 - Retrieving terms within an ontology
 - Retrieving relatives (parents, ancestors, children, descendents) of
   terms.
+
+The CELLxGENE [case study vignette][cxg] outlines ontology
+representation as graphs, and manipulation and visualization using
+igraph, visNetwork and other *R* packages.
+
   
 [OLSr][] uses a cache to minimize the number of calls to the OLS; the
 introductory vignette includes a short section discussing cache
@@ -47,6 +53,7 @@ management.
 
 ## Next steps
 
-See the [introductory vignette][] for next steps.
+See the [introductory vignette][intro] for next steps.
 
-[introductory vignette]: https://mtmorgan.github.io/OLSr/articles/introduction.html
+[intro]: https://mtmorgan.github.io/OLSr/articles/introduction.html
+[cxg]: https://mtmorgan.github.io/OLSr/articles/case_study_cxg.html

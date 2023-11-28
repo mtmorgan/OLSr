@@ -57,9 +57,7 @@ ols4_request_perform <-
             if (total_pages == 0L)      # no results
                 break
             all_responses <- vector("list", total_pages)
-            pb <- progress_bar$new(
-                format = "[:bar] :percent", total = total_pages
-            )
+            pb <- progress_bar$new(total = total_pages)
         }
 
         page_number <- # 1-based R

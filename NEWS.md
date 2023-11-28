@@ -1,3 +1,7 @@
+# OLSr 0.0.2
+
+- (0.0.2) Add ancestors / descendants graphs and CELLxGENE case study.
+
 # OLSr 0.0.1
 
 - (0.0.1) Initial version, with ontology, term, and relative

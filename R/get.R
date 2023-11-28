@@ -184,9 +184,30 @@ get_term <-
         mutate(description = as_description_string(.data$description))
 }
 
+get_relatives <-
+    function(ontology, id, relation)
+{
+    relations <- c(
+        "parents", "children", "ancestors", "descendants",
+        "hierarchicalAncestors", "hierarchicalDescendants"
+    )
+    stopifnot(
+        is_ontology(ontology),
+        is_string(id),
+        is_string(relation),
+        relation %in% relations
+    )
+
+    path <- glue("/api/ontologies/{ontology}/{relation}?id={id}")
+    ols4_request_perform(path)
+}
+
 clean_relatives <-
     function(relatives, all_ontologies)
 {
+    if (!NROW(relatives))
+        return(relatives)
+
     drop_columns <- c(
         "lang", "ontology_name", "ontology_prefix", "ontology_iri",
         "is_preferred_root", "is_obsolete", "term_replaced_by",
@@ -203,28 +224,14 @@ clean_relatives <-
         mutate(description = as_description_string(.data$description))
 }
 
-get_relatives <-
+get_clean_relatives <-
     function(ontology, id, relation, all_ontologies)
 {
-    relations <- c(
-        "parents", "children", "ancestors", "descendants",
-        "hierarchicalAncestors", "hierarchicalDescendants"
-    )
     stopifnot(
-        is_ontology(ontology),
-        is_string(id),
-        is_string(relation),
-        relation %in% relations,
         is_TRUEorFALSE(all_ontologies)
     )
-
-    path <- glue("/api/ontologies/{ontology}/{relation}?id={id}")
-    relatives <- ols4_request_perform(path)
-
-    if (NROW(relatives))
-        relatives <- clean_relatives(relatives, all_ontologies)
- 
-    relatives
+    relatives <- get_relatives(ontology, id, relation)
+    clean_relatives(relatives, all_ontologies)
 }
 
 #' @rdname get
@@ -245,7 +252,7 @@ get_relatives <-
 get_parents <-
     function(ontology, id, all_ontologies = FALSE)
 {
-    get_relatives(ontology, id, "parents", all_ontologies = all_ontologies)
+    get_clean_relatives(ontology, id, "parents", all_ontologies)
 }
 
 #' @rdname get
@@ -258,7 +265,7 @@ get_parents <-
 get_ancestors <-
     function(ontology, id, all_ontologies = FALSE)
 {
-    get_relatives(ontology, id, "ancestors", all_ontologies = all_ontologies)
+    get_clean_relatives(ontology, id, "ancestors", all_ontologies)
 }
 
 #' @rdname get
@@ -271,7 +278,7 @@ get_ancestors <-
 get_children <-
     function(ontology, id, all_ontologies = FALSE)
 {
-    get_relatives(ontology, id, "children", all_ontologies = all_ontologies)
+    get_clean_relatives(ontology, id, "children", all_ontologies)
 }
 
 #' @rdname get
@@ -284,5 +291,5 @@ get_children <-
 get_descendants <-
     function(ontology, id, all_ontologies = FALSE)
 {
-    get_relatives(ontology, id, "descendants", all_ontologies = all_ontologies)
+    get_clean_relatives(ontology, id, "descendants", all_ontologies)
 }

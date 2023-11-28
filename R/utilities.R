@@ -1,9 +1,10 @@
 ## assertions; assigned in .onLoad
 
 is_string <-
-    is_number <-
-        is_TRUEorFALSE <-
-            NULL
+    is_character <-
+        is_number <-
+            is_TRUEorFALSE <-
+                NULL
 
 is_ontology <-
     function(x)
@@ -44,3 +45,7 @@ pkg_user_agent <-
     dcf <- read.dcf(file_path, c("Package", "Version", "URL"))
     glue("{Package}/{Version} ({URL})", .envir = as.data.frame(dcf))
 }
+
+## pretty-printin
+
+select_some <- NULL # assigned in .onLoad
