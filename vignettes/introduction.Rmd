@@ -233,6 +233,13 @@ get_children("cl", "CL:0002350")
 get_descendants("cl", "CL:0002350")
 ```
 
+# Graphs
+
+See the [Case Study: CELLxGENE Ontologies][cxg] vignette for
+illustration of ancestors and descendants graphs.
+
+[cxg]: ./case_study_cxg.html
+
 # Cache management
 
 OLSr uses an on-disk cache to improve performance and

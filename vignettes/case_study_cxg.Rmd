@@ -1,0 +1,336 @@
+---
+title: "2. Case Study: CELLxGENE Ontologies"
+author:
+- name: Martin Morgan
+  affiliation: "Roswell Park Comprehensive Cancer Center, Buffalo, NY, US"
+output: BiocStyle::html_document
+vignette: >
+  %\VignetteIndexEntry{2. Case Study: CELLxGENE Ontologies}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r vignette-setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+This case study illustrates use of OLSr to facilitate data set
+discovery in the [CELLxGENE data portal][cxgdp]. The CELLxGENE data
+portal provides a graphical user interface to collections of
+single-cell sequence data processed in standard ways to 'count matrix'
+summaries. The [cellxgenedp][] *R* / *Bioconductor* package provides
+an *R*-based interface, allowing data discovery, viewing, and
+downloading.
+
+This vignette uses the [cellxgenedp][], [igraph][], and [visNetwork][]
+packages. Install these with the following command
+
+```{r install, eval = FALSE}
+if (!"BiocManager" %in% rownames(installed.packages()))
+    install.packages("BiocManager", repos = "https://cloud.r-project.org")
+pkgs <- c("cellxgenedp", "igraph", "visNetwork")
+required_pkgs <- pkgs[!pkgs %in% rownames(installed.packages())]
+BiocManager::install(required_pkgs)
+```
+
+[cxgdp]: https://cellxgene.cziscience.com/
+[igraph]: https://CRAN.R-project.org/package=igraph
+[visNetwork]: https://CRAN.R-project.org/package=visNetwork
+[cellxgenedp]: https://mtmorgan.github.io/cellxgenedp
+[OLSr]: https://mtmorgan.github.io/OLSr
+
+Start by loading the [OLSr][] and [cellxgenedp][] packages
+
+```{r library-setup, message = FALSE}
+library(OLSr)
+library(cellxgenedp)
+```
+
+# CELLxGENE
+
+A central element of the CELLxGENE resource is the collection of
+[datasets][]. These are discovered programmatically using
+
+```{r cellxgene-db}
+db <- db()
+datasets(db)
+```
+
+Data sets are classified using ontologies exposed by [cellxgenedp][] to
+the user as 'facets'.
+
+```{r cellxgene-facets}
+facets <- facets(db)
+facets
+```
+
+Some insight into the ontologies used to construct facets can be
+gained by extracting the ontology from the `ontology_term_id`.
+
+```{r cellxgene-ontology}
+facets |>
+    ## a small number of terms are not from any ontology; these do not
+    ## have a ':' in the ontology_term_id
+    filter(grepl(":", ontology_term_id, fixed = TRUE)) |> 
+    ## for the remainder, discover the ontology from the ontology_term_id
+    mutate(ontology = tolower(sub("(.*):.*", "\\1", ontology_term_id))) |>
+    count(facet, ontology)
+```
+
+# Annotating the CELLxGENE 'disease' facet
+
+Our example will work with the 'disease' facet, based on the 'mondo'
+ontology. Check that the ontology is in the OLS.
+
+```{r mondo}
+"mondo" %in% get_ontologies()$id
+```
+
+Retrieve all terms from the ontology.
+
+```{r mondo-terms}
+mondo <- get_terms("mondo")
+mondo
+```
+
+There are `r NROW(mondo)` terms in this ontology; only a small subset
+of `r NROW(facets(db, "disease"))` terms are used in CELLxGENE
+datasets. Annotate the disease facet with information from the OLS.
+
+```{r disease-terms}
+disease_terms <-
+    facets(db, "disease") |>
+    ## join based on identity between CxG's 'ontology_term_id' and
+    ## OLS's 'obo_id'
+    left_join(mondo, by = c("label", ontology_term_id = "obo_id")) |>
+    ## for consistency with OLSr convention, rename the
+    ## 'ontology_term_id' to 'obo_id'
+    rename(obo_id = "ontology_term_id")
+disease_terms
+```
+
+Note that the 'normal' term with OBO id 'PATO:0000461' used by
+CELLxGENE is not from the 'mondo' ontology; we could discover
+information about this term by also retrieving the 'pato' ontology
+from the OLS, or using `get_term("pato", "PATO:0000461")`.
+
+[datasets]: https://cellxgene.cziscience.com/datasets
+
+# Carcinoma datasets in CELLxGENE
+
+CELLxGENE presents the disease facet as a flat list of terms, although
+the [datasets][] are presented with an *ad hoc* filter to group terms
+and facilitate selection of datasets containing samples from multiple
+terms. A more principled approach is to use the ontology to identify
+terms of interest. 
+
+Suppose one is interested in all datasets annotated with disease term
+derived from 'carcinoma'; this term does not itself appear in the
+disease facet. Find the `obo_id` of the 'carcinoma' term in the the
+mondo ontology, and use that to find descendants.
+
+```{r carcinoma-term-id}
+carcinoma_id <-
+    mondo |>
+    filter(label == "carcinoma") |>
+    pull("obo_id")
+carcinoma <- get_descendants("mondo", carcinoma_id)
+```
+
+There are `r NROW(carcinoma)` terms descending from 'carcinoma'. Terms
+used by the disease facet are
+
+```{r carcinoma-disease-annotation}
+disease_terms |>
+    inner_join(carcinoma) |>
+    select(obo_id, n, label, description)
+```
+
+The `facets_filter()` function of [cellxgenedp][] makes it easy to
+identify datasets using terms derived from 'carcinoma', perhaps in
+addition filtering to single type of assay.
+
+```{r carcinoma-datasets}
+datasets_of_interest <-
+    datasets(db) |>
+    filter(
+        facets_filter(disease, "ontology_term_id", carcinoma$obo_id),
+        facets_filter(assay, "label", "10x 3' v3")
+    )
+datasets_of_interest
+```
+
+There are `r NROW(datasets_of_interest)` datasets. Further steps, such
+as visualization using CELLxGENE or downloading datasets for local
+analysis, are described in the [cellxgenedp][] vignette.
+
+```{r ancestor-graph}
+ids <- pull(disease_terms, "obo_id")
+disease_graph <- get_ancestors_graph("mondo", ids, mondo)
+```
+
+# Ontologies as graphs
+
+It can be useful to compute on ontologies as graphs. Use
+`get_descendants_graph()` to retrieve, recursively, the children of
+the 'carcinoma' term. This step can take one or two minutes, and
+requires one API call per child. The API calls are memoised, so the
+process is time consuming only the first time the graph is
+constructed.
+
+```{r get-descendants}
+carcinoma_graph <-
+    ## many calls to the OLS API; slow the first time
+    get_descendants_graph("mondo", carcinoma_id, mondo)
+```
+
+`get_descendants_graph()` returns a `olsr_graph` object, which
+contains information about the type of graph (ancestors or
+descendants), the ontology used to construct the graph, and the ids
+used to seed the query.
+
+```{r carcinoma-graph}
+carcinoma_graph
+```
+
+The object can be queried from relevant components, for instance
+annotation of each node
+
+```{r graph-nodes}
+olsr_graph_nodes(carcinoma_graph)
+```
+
+# Graph manipulation
+
+There are `r NROW(olsr_graph_nodes(carcinoma_graph))` nodes in this
+graph, but only a dozen or so terms used in the CELLxGENE disease
+facet. We would like to compute on the graph so that it contains only
+the nodes involved in paths from the 'carcinoma' term to terms used by
+the disease facet.
+
+Start by coercing the `olsr_graph` to an object that can be used by
+the [igraph][] package.
+
+```{r olsr-to-igraph}
+ig <- olsr_graph_as_igraph(carcinoma_graph)
+```
+
+`olsr_graph_as_igraph()` uses the nodes of `carcinoma_graph` as vertex
+attributes, and adds information about the relationship, ontology, and
+id(s) as a graph attribute. Note that the OLS field `obo_id` has been
+translated to the igraph attribute `name`.
+
+```{r graph_attr}
+igraph::vertex_attr_names(ig)
+igraph::graph_attr(ig, "olsr_graph") |>
+    str()
+```
+
+Identifying a subgraph of `ig` corresponds (I think!)  to calculating
+a minimal directed Steiner tree. An algorithm for this does not exist
+in [igraph][] or other *R* packages, so we must develop our own. The
+solution defined in the `directed_steiner_tree_approx()` function is
+to find the shortest paths from the 'carcinoma' node to each term in
+the disease facet, and then to create a subgraph containing just those
+nodes.
+
+```{r steiner-tree}
+directed_steiner_tree_approx <-
+    function(graph, from, to)
+{
+    ## only an approximation! Use the union of all nodes on all
+    ## shortest paths from 'from' to each of 'to'
+
+    ## find shortest paths from node 'from' to each 'to' node
+    paths <- igraph::shortest_paths(ig, from, to)$vpath
+
+    ## identify nodes on the shortest paths
+    shortest_paths_nodes <-
+        lapply(paths, names) |>
+        unlist() |>
+        unique()
+
+    ## create an induced subgraph on the shortest-path nodes
+    igraph::induced_subgraph(ig, shortest_paths_nodes)
+}
+```
+
+This solution is not necessarily efficient, and does not guarantee a
+minimal tree, but it is perhaps good enough for the size of data
+encountered in a typical ontology.
+
+To use the algorithm, identify the starting node and the relevant
+nodes of the disease facet, and use these as inputs
+
+```{r steiner-subgraph}
+keep_ids <- c(
+    carcinoma_id,
+    intersect(disease_terms$obo_id, carcinoma$obo_id)
+)
+ig1 <- directed_steiner_tree_approx(ig, head(keep_ids, 1), tail(keep_ids, -1))
+ig1
+```
+
+The induced graph returned by `directed_steiner_tree_approx()`
+includes vertex and graph annotations from the input graph, and can be
+coerced to a `olsr_graph` object.
+
+```{r igraph-to-olsr}
+igraph_as_olsr_graph(ig1)
+```
+
+# Graph visualization
+
+There are `r length(igraph::V(ig1))` nodes in this subgraph, few
+enough for convenient interactive visualization using the
+[visNetwork][] package.
+
+Use igraph commands to color nodes used in graph construction (the
+'from' and 'to' nodes) differently from nodes required to represent
+paths between nodes. Use the igraph 'name' attribute (OBO id) as the
+'title' (i.e., mouse-over tool-tip). The 'label' attribute is used to
+label nodes.
+
+```{r igraph-color-nodes}
+## colorspace::qualitative_hcl(2, "Set 2")
+palette <- c("#ED90A4", "#00C1B2")
+igraph::V(ig1)$color <- palette[ (igraph::V(ig1)$name %in% keep_ids) + 1L]
+igraph::V(ig1)$title <- igraph::V(ig1)$name # obo_id
+## V(ig1)$label             # 'label' (short description) from OLS
+```
+
+Create an interactive visualization using `visIgraph()`. The
+'sugiyama' layout is appropriate for directed tree-like
+graphs. `idToLabel = FALSE` ensures that the label vertex attribute,
+rather than the internal igraph id, is used to label nodes.
+
+Note that the graph is interactive -- zoom in and out, mouse-over and
+select nodes, etc.
+
+```{r visIgraph}
+visNetwork::visIgraph(ig1, layout = "layout_with_sugiyama", idToLabel = FALSE)
+```
+
+A more flexible alternative for visualization is to translate an
+`olsr_graph` to a `visNetwork` object, and to transform that for
+visualization.
+
+```{r visNetwork}
+carcinoma_subgraph <- igraph_as_olsr_graph(ig1)
+olsr_graph_as_visNetwork(carcinoma_subgraph) |>
+    visNetwork::visEdges(arrows = "to") |>
+    visNetwork::visHierarchicalLayout(
+        sortMethod = "directed",
+        direction = "LR"
+    )
+```
+
+# Session information
+
+
+```{r session-info}
+sessionInfo()
+```

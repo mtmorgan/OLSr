@@ -229,9 +229,8 @@ olsr_graph_edges <- function(x) olsr_graph_elt(x, "edges")
 #' to `id`, consistent with visNetwork. The `id` column is copied to
 #' `title`, so that it is used in mouse-over text; a `label` (the
 #' short description of each term in the tibble returned by `terms()`)
-#' is used to label the node on the graph. Nodes corresponding to the
-#' ids used to create the ancestors or descendants graph are colored
-#' differently from other nodes.
+#' is used to label the node on the graph. Add a column `color` to
+#' `nodes` to color individual nodes
 #'
 #' @return `olsr_graph_as_visNetwork()` returns an object created by a
 #'     call to `visNetwork::visNetwork()`. This object can be used for
@@ -252,7 +251,6 @@ olsr_graph_as_visNetwork <-
     requireNamespace("visNetwork", quietly = TRUE)
 
     ## colorspace::qualitative_hcl(2, "Set 2")
-    palette <- c("#ED90A4", "#00C1B2")
     nodes <-
         olsr_graph_nodes(graph) |>
         ## visNetwork expects the node identifier to have column name
@@ -260,10 +258,7 @@ olsr_graph_as_visNetwork <-
         rename(id = "obo_id") |>
         mutate(
             ## 'title' is used as the mouse-over text
-            title = .data$id,
-            ## 'color' colors nodes used to construct the graph
-            ## differently from other nodes
-            color = palette[(.data$id %in% olsr_graph_ids(graph)) + 1L]
+            title = .data$id
         )
 
     visNetwork::visNetwork(nodes, olsr_graph_edges(graph)) |>
