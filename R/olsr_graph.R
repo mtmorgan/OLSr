@@ -59,9 +59,9 @@ get_relatives_graph <-
     olsr_graph(relation, ontology, ids, edges, nodes)
 }
 
-#' @rdname graph
+#' @rdname olsr_graph
 #'
-#' @title Working with Ancestor and Descendant Term Graphs
+#' @title Ancestor and Descendant Term Graphs
 #'
 #' @description `get_ancestors_graph()` and `get_descendants_graph()`
 #'     returns a graph representation of all ancestors or descendants
@@ -85,11 +85,12 @@ get_relatives_graph <-
 #' be time consuming (e.g., a minute or so) on first invocation. API
 #' calls are memoized, so fast on subsequent invocations.
 #'
-#' @return `get_ancestors_graph()` and `get_descendants_graph()`
-#'     return an `olsr_graph` object recording the ontology, ids,
-#'     edges, and nodes implied by the ancestor or descendant
-#'     graph. Nodes are annotated with information from `terms`, if
-#'     available.
+#' @return
+#'
+#' `get_ancestors_graph()` and `get_descendants_graph()` return an
+#' `olsr_graph` object recording the ontology, ids, edges, and nodes
+#' implied by the ancestor or descendant graph. Nodes are annotated
+#' with information from `terms`, if available.
 #'
 #' @examples
 #' cl <- get_terms("cl")
@@ -104,7 +105,7 @@ get_ancestors_graph <-
     get_relatives_graph(ontology, ids, terms, "ancestors")
 }
 
-#' @rdname graph
+#' @rdname olsr_graph
 #'
 #' @examples
 #' desc <- get_descendants_graph("cl", b_cell, cl)  # 64 nodes
@@ -117,7 +118,7 @@ get_descendants_graph <-
     get_relatives_graph(ontology, ids, terms, "descendants")
 }
 
-#' @rdname graph
+#' @rdname olsr_graph
 #'
 #' @description `olsr_graph()` constructs an `olsr_graph` from
 #'     *R* objects.
@@ -184,7 +185,7 @@ olsr_graph_elt <-
     x[[elt]]
 }
 
-#' @rdname graph
+#' @rdname olsr_graph
 #'
 
 #' @description `olsr_graph_edges()`, `olsr_graph_nodes()`,
@@ -200,22 +201,22 @@ olsr_graph_elt <-
 #' @export
 olsr_graph_ontology <- function(x) olsr_graph_elt(x, "ontology")
 
-#' @rdname graph
+#' @rdname olsr_graph
 #'
 #' @export
 olsr_graph_ids <- function(x) olsr_graph_elt(x, "ids")
 
-#' @rdname graph
+#' @rdname olsr_graph
 #'
 #' @export
 olsr_graph_nodes <- function(x) olsr_graph_elt(x, "nodes")
 
-#' @rdname graph
+#' @rdname olsr_graph
 #'
 #' @export
 olsr_graph_edges <- function(x) olsr_graph_elt(x, "edges")
 
-#' @rdname graph
+#' @rdname olsr_graph
 #'
 #' @description `olsr_graph_as_visNetwork()` converts an `olsr_graph` to
 #'     the format used by the visNetwork package for interactive
@@ -288,7 +289,7 @@ igraph_nodes_as_tibble <-
         rename(obo_id = "name")
 }
 
-#' @rdname graph
+#' @rdname olsr_graph
 #'
 #' @description `olsr_graph_as_igraph()` and `igraph_as_olsr_graph()`
 #'     transform `olsr_graph` objects to and from `igraph` objects.
@@ -338,7 +339,7 @@ olsr_graph_as_igraph <-
     ig
 }
 
-#' @rdname graph
+#' @rdname olsr_graph
 #'
 #' @param igraph an object of class `igraph`, from the igraph package.
 #'
@@ -362,7 +363,7 @@ igraph_as_olsr_graph <-
     }
 }
 
-#' @rdname graph
+#' @rdname olsr_graph
 #'
 #' @param x for `print.olsr_graph()`, an object of class `olsr_graph`.
 #'

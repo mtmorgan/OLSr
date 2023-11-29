@@ -80,7 +80,7 @@ facets |>
     count(facet, ontology)
 ```
 
-# Annotating the CELLxGENE 'disease' facet
+## Annotating the 'disease' facet
 
 Our example will work with the 'disease' facet, based on the 'mondo'
 ontology. Check that the ontology is in the OLS.
@@ -119,7 +119,7 @@ from the OLS, or using `get_term("pato", "PATO:0000461")`.
 
 [datasets]: https://cellxgene.cziscience.com/datasets
 
-# Carcinoma datasets in CELLxGENE
+## Identifying carcinoma datasets
 
 CELLxGENE presents the disease facet as a flat list of terms, although
 the [datasets][] are presented with an *ad hoc* filter to group terms
@@ -198,7 +198,7 @@ annotation of each node
 olsr_graph_nodes(carcinoma_graph)
 ```
 
-# Graph manipulation
+## Graph manipulation
 
 There are `r NROW(olsr_graph_nodes(carcinoma_graph))` nodes in this
 graph, but only a dozen or so terms used in the CELLxGENE disease
@@ -277,7 +277,7 @@ coerced to a `olsr_graph` object.
 igraph_as_olsr_graph(ig1)
 ```
 
-# Graph visualization
+## Graph visualization
 
 There are `r length(igraph::V(ig1))` nodes in this subgraph, few
 enough for convenient interactive visualization using the
@@ -324,7 +324,6 @@ olsr_graph_as_visNetwork(carcinoma_subgraph) |>
 ```
 
 # Session information
-
 
 ```{r session-info}
 sessionInfo()
