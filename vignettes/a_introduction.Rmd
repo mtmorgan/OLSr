@@ -1,11 +1,11 @@
 ---
-title: "1. Introduction to OLSr"
+title: "Introduction to OLSr"
 author:
 - name: Martin Morgan
   affiliation: Roswell Park Comprehensive Cancer Center, Buffalo, NY, US
 output: BiocStyle::html_document
 vignette: >
-  %\VignetteIndexEntry{1. Introduction to OLSr}
+  %\VignetteIndexEntry{Introduction to OLSr}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

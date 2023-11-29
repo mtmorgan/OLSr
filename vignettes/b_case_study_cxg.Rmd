@@ -1,11 +1,11 @@
 ---
-title: "2. Case Study: CELLxGENE Ontologies"
+title: "Case Study: CELLxGENE Ontologies"
 author:
 - name: Martin Morgan
   affiliation: "Roswell Park Comprehensive Cancer Center, Buffalo, NY, US"
 output: BiocStyle::html_document
 vignette: >
-  %\VignetteIndexEntry{2. Case Study: CELLxGENE Ontologies}
+  %\VignetteIndexEntry{Case Study: CELLxGENE Ontologies}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -166,11 +166,6 @@ datasets_of_interest
 There are `r NROW(datasets_of_interest)` datasets. Further steps, such
 as visualization using CELLxGENE or downloading datasets for local
 analysis, are described in the [cellxgenedp][] vignette.
-
-```{r ancestor-graph}
-ids <- pull(disease_terms, "obo_id")
-disease_graph <- get_ancestors_graph("mondo", ids, mondo)
-```
 
 # Ontologies as graphs
 

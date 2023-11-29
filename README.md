@@ -55,5 +55,5 @@ management.
 
 See the [introductory vignette][intro] for next steps.
 
-[intro]: https://mtmorgan.github.io/OLSr/articles/introduction.html
-[cxg]: https://mtmorgan.github.io/OLSr/articles/case_study_cxg.html
+[intro]: ./articles/a_introduction.html
+[cxg]: ./articles/b_case_study_cxg.html
