@@ -42,8 +42,73 @@ cache_directory <-
 
 #' @rdname cache
 #'
-#' @description `cache_info()` summarizes information about each file
-#'     in the cache.
+#' @description `cache_summary()` reports the number and size of files
+#'     in the cache, the oldest file, etc.
+#'
+#' @return
+#'
+#' `cache_summary()` returns a list with the following elements:
+#'
+#' - `directory`: the location of the cache, i.e., `cache_directory()`.
+#'
+#' - `n_files`: the number of files in the cache.
+#'
+#' - `cache_size`: the sum of file sizes in the cache.
+#'
+#' - `largest_file`, `largest_size`: the largest file and its size in
+#'   the cache.
+#'
+#' - `oldest_file`, `oldest_age`: the name and age (as a `difftime`
+#'   object) of the oldest (based on `ctime`) file in the path.
+#' - `least_used_file`, `least_used_age`: the name and age of the file
+#'   that was modified least recently, based on `mtime`.
+#'
+#' `print.cache_summary()` displays this information in a readable
+#' way.
+#'
+#' @examples
+#' cache_summary()
+#'
+#' @importFrom dplyr arrange desc slice
+#'
+#' @export
+cache_summary <-
+    function()
+{
+    info <- cache_info()
+    oldest_file <-
+        info |>
+        arrange(.data$ctime) |>
+        slice(1)
+    least_used_file <-
+        info |>
+        arrange(.data$mtime) |>
+        slice(1)
+    largest_file <-
+        info |>
+        arrange(desc(.data$size)) |>
+        slice(1)
+
+    structure(
+        list(
+            directory = cache_directory(),
+            n_files = NROW(info),
+            cache_size = sum(info$size),
+            oldest_file = oldest_file$file,
+            oldest_age = Sys.time() - oldest_file$ctime,
+            least_used_file = least_used_file$file,
+            least_used_age = Sys.time() - least_used_file$mtime,
+            largest_file = largest_file$file,
+            largest_size = largest_file$size
+        ),
+        class = "cache_summary"
+    )
+}
+
+#' @rdname cache
+#'
+#' @description `cache_info()` reports information about each file in
+#'     the cache.
 #'
 #' @return
 #'
@@ -84,7 +149,7 @@ cache_info <-
         cache_directory() |>
         dir(full.names = TRUE) |>
         file.info()
-    
+
     file_info |>
         as_tibble(rownames = "file") |>
         select(where(is_varying_column)) |>
@@ -113,4 +178,61 @@ cache <-
     ## use a disk cache for memoised functions; expire objects after
     ## 30 days
     cache_disk(cache_directory(), max_age = 60 * 60 * 24 * 30)
+}
+
+## helper functions for print.cache_summary()
+cache_size_as_text <-
+    function(x, units = "auto")
+{
+    if (!length(x)) {
+        return("0 B")
+    }
+
+    format(structure(x, class = "object_size"), units = units)
+}
+
+cache_age_as_text <-
+    function(x)
+{
+    if (!length(x))
+        return ("0 secs")
+
+    age <- as.integer(x)
+    units <- attr(x, "units")
+    glue("{age} {units}")
+}
+
+cache_file_as_text <-
+    function(x)
+{
+    if (length(x)) glue("({x})") else ""
+}
+
+#' @rdname cache
+#'
+#' @param x for `print.cache_summary()`, an object returned by
+#'     `cache_summary().
+#'
+#' @param ... ignored by `print.cache_summary()`.
+#'
+#' @export
+print.cache_summary <-
+    function(x, ...)
+{
+    cache_size <- cache_size_as_text(x$cache_size)
+    largest_file <- cache_file_as_text(x$largest_file)
+    largest_size <- cache_size_as_text(x$largest_size)
+    oldest_file <- cache_file_as_text(x$oldest_file)
+    oldest_age <- cache_age_as_text(x$oldest_age)
+    least_used_file <- cache_file_as_text(x$least_used_file)
+    least_used_age <- cache_age_as_text(x$least_used_age)
+
+    cat(glue("
+        cache directory: {x$directory}
+        number of files: {x$n_files}
+        total cache size: {cache_size}
+        largest file: {largest_size} {largest_file}
+        oldest file: {oldest_age} {oldest_file}
+        least used file: {least_used_age} {least_used_file}"
+    ), "\n")
 }

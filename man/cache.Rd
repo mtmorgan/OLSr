@@ -2,19 +2,47 @@
 % Please edit documentation in R/cache.R
 \name{cache_directory}
 \alias{cache_directory}
+\alias{cache_summary}
 \alias{cache_info}
 \alias{cache}
+\alias{print.cache_summary}
 \title{OLSr Cache Management}
 \usage{
 cache_directory()
 
+cache_summary()
+
 cache_info()
 
 cache()
+
+\method{print}{cache_summary}(x, ...)
+}
+\arguments{
+\item{x}{for \code{print.cache_summary()}, an object returned by
+`cache_summary().}
+
+\item{...}{ignored by \code{print.cache_summary()}.}
 }
 \value{
 cache_directory() returns the character(1) path to the
 location of the cache on disk.
+
+\code{cache_summary()} returns a list with the following elements:
+\itemize{
+\item \code{directory}: the location of the cache, i.e., \code{cache_directory()}.
+\item \code{n_files}: the number of files in the cache.
+\item \code{cache_size}: the sum of file sizes in the cache.
+\item \code{largest_file}, \code{largest_size}: the largest file and its size in
+the cache.
+\item \code{oldest_file}, \code{oldest_age}: the name and age (as a \code{difftime}
+object) of the oldest (based on \code{ctime}) file in the path.
+\item \code{least_used_file}, \code{least_used_age}: the name and age of the file
+that was modified least recently, based on \code{mtime}.
+}
+
+\code{print.cache_summary()} displays this information in a readable
+way.
 
 \code{cache_info()} returns a tibble with columns summarizing
 \itemize{
@@ -33,8 +61,11 @@ last-access time of the file.
 \code{cache_directory()} returns the on-disk location of
 the cache used by OLSr.
 
-\code{cache_info()} summarizes information about each file
-in the cache.
+\code{cache_summary()} reports the number and size of files
+in the cache, the oldest file, etc.
+
+\code{cache_info()} reports information about each file in
+the cache.
 
 \code{cache()} returns an object that can be used in cache
 management.
@@ -65,6 +96,8 @@ returned by \code{cache()}.
 }
 \examples{
 cache_directory()
+
+cache_summary()
 
 cache_info()
 
