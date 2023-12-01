@@ -1,5 +1,5 @@
-#' @importFrom cli cli_progress_bar cli_progress_update
-#'     cli_progress_done pb_spin pb_current
+#' @importFrom cli cli_progress_bar cli_progress_message
+#'     cli_progress_update cli_progress_done
 #'
 #' @importFrom dplyr tibble left_join pull bind_rows
 get_relatives_graph <-
@@ -16,20 +16,16 @@ get_relatives_graph <-
     )
     relative <- ifelse(identical(relation, "ancestors"), "parents", "children")
 
-    cli_progress_bar(
-        format = "{cli::pb_spin} {cli::pb_current} relatives",
-        total = NA
-    )
-
     ## initialize queue of ids, node_ids visited, and edges tibble
     queue <- ids
     node_ids <- character()
     edges <- tibble(from = character(), to = character())
 
     ## process all nodes in the graph, including new parent / child
+    cli_progress_message(
+        "{length(node_ids)} relatives visited; {length(queue)} in queue"
+    )
     while (length(queue)) {
-        cli_progress_update()
-
         ## process next element in queue
         id <- head(queue, 1)
         queue <- tail(queue, -1)
@@ -44,6 +40,7 @@ get_relatives_graph <-
         ## update queue
         queue <- union(queue, setdiff(parent_ids, node_ids))
         node_ids <- union(node_ids, parent_ids)
+        cli_progress_update()
     }
     cli_progress_done()
 

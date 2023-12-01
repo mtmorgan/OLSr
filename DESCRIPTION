@@ -31,7 +31,6 @@ Imports:
     httr2,
     glue,
     cli,
-    progress,
     tidyr,
     memoise,
     cachem,
