@@ -39,6 +39,12 @@ jobs:
         run: pkgdown::build_site_github_pages(new_process = FALSE, install = FALSE)
         shell: Rscript {0}
 
+      - name: cache OLSr user cache
+        uses: actions/cache@v3
+        with:
+          path: /home/runner/.cache/R/OLSr
+          key: ${{ runner.os }}-user-cache
+
       - name: Deploy to GitHub pages 🚀
         if: github.event_name != 'pull_request'
         uses: JamesIves/github-pages-deploy-action@v4.4.1
