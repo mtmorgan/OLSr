@@ -22,8 +22,6 @@ ols4_request_one <-
 
 #' @importFrom glue glue
 #'
-#' @importFrom progress progress_bar
-#'
 #' @importFrom rjsoncons jmespath
 #'
 #' @importFrom dplyr bind_rows
@@ -44,8 +42,8 @@ ols4_request_perform <-
         "page={page}&size={size}"
     )
 
-    pb <- NULL
     all_responses <- NULL
+    cli_progress_bar("Querying OLS", total = NA)
     repeat {
         response <- ols4_request_one(url)
         if (is.null(all_responses)) {
@@ -57,18 +55,17 @@ ols4_request_perform <-
             if (total_pages == 0L)      # no results
                 break
             all_responses <- vector("list", total_pages)
-            pb <- progress_bar$new(total = total_pages)
         }
 
-        page_number <- # 1-based R
-            jmespath(response, "page.number", as = "R") + 1L
+        page_number <- jmespath(response, "page.number", as = "R") + 1L # 1-based
         all_responses[[page_number]] <- ols4_response_nested_to_tbl(response)
-        pb$tick()
+        cli_progress_update(total = total_pages)
 
         if (!jmespath(response, "contains(keys(_links), 'next')", as = "R"))
             break
         url <- jmespath(response, "_links.next.href")
     }
+    cli_progress_done()
 
     bind_rows(all_responses)
 }

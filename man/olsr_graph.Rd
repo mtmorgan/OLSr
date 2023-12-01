@@ -12,7 +12,7 @@
 \alias{olsr_graph_as_igraph}
 \alias{igraph_as_olsr_graph}
 \alias{print.olsr_graph}
-\title{Working with Ancestor and Descendant Term Graphs}
+\title{Ancestor and Descendant Term Graphs}
 \usage{
 get_ancestors_graph(ontology, ids, terms = NULL)
 
@@ -64,11 +64,10 @@ the graph. Arbitrary additional columns are allowed.}
 \item{...}{for \code{print.olsr_graph()}, ignored.}
 }
 \value{
-\code{get_ancestors_graph()} and \code{get_descendants_graph()}
-return an \code{olsr_graph} object recording the ontology, ids,
-edges, and nodes implied by the ancestor or descendant
-graph. Nodes are annotated with information from \code{terms}, if
-available.
+\code{get_ancestors_graph()} and \code{get_descendants_graph()} return an
+\code{olsr_graph} object recording the ontology, ids, edges, and nodes
+implied by the ancestor or descendant graph. Nodes are annotated
+with information from \code{terms}, if available.
 
 \code{olsr_graph()} returns an object of class \code{olsr_graph}.
 
