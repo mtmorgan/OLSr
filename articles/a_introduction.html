@@ -26,7 +26,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">OLSr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.3</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -115,7 +115,7 @@ also attached.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">onto</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get.html">get_ontologies</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="va">onto</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 249 × 31</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 250 × 31</span></span></span>
 <span><span class="co">#&gt;    id        title          description version numberOfTerms numberOfProperties</span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> ado       Alzheimer's D… Alzheimer'… 2.0.1            <span style="text-decoration: underline;">1</span>963                186</span></span>
@@ -128,7 +128,7 @@ also attached.</p>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> bco       Biological Co… An ontolog… 2021-1…           253                472</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> bfo       Basic Formal … The upper … <span style="color: #BB0000;">NA</span>                 35                 22</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> bspo      Biological Sp… An ontolog… 2023-0…           169                236</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 239 more rows</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 240 more rows</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 25 more variables: numberOfIndividuals &lt;int&gt;, languages &lt;list&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   loaded &lt;chr&gt;, updated &lt;chr&gt;, versionIri &lt;chr&gt;, namespace &lt;chr&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   preferredPrefix &lt;chr&gt;, homepage &lt;chr&gt;, mailingList &lt;chr&gt;, tracker &lt;chr&gt;,</span></span></span>
@@ -154,8 +154,8 @@ ontology description.</p>
 <span><span class="co">#&gt; $ numberOfProperties     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 531</span></span>
 <span><span class="co">#&gt; $ numberOfIndividuals    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 18</span></span>
 <span><span class="co">#&gt; $ languages              <span style="color: #949494; font-style: italic;">&lt;list&gt;</span> ["en"]</span></span>
-<span><span class="co">#&gt; $ loaded                 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "2023-11-27T11:39:31.284869834"</span></span>
-<span><span class="co">#&gt; $ updated                <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "2023-11-27T11:39:31.284869834"</span></span>
+<span><span class="co">#&gt; $ loaded                 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "2023-11-30T14:00:19.698341744"</span></span>
+<span><span class="co">#&gt; $ updated                <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "2023-11-30T14:00:19.698341744"</span></span>
 <span><span class="co">#&gt; $ versionIri             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "http://purl.obolibrary.org/obo/cl/releases/202…</span></span>
 <span><span class="co">#&gt; $ namespace              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "cl"</span></span>
 <span><span class="co">#&gt; $ preferredPrefix        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "CL"</span></span>
@@ -201,8 +201,8 @@ environment.</p>
 <span><span class="co">#&gt; $ languages           <span style="color: #949494; font-style: italic;">&lt;list&gt;</span> "en"</span></span>
 <span><span class="co">#&gt; $ lang                <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "en"</span></span>
 <span><span class="co">#&gt; $ ontologyId          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "cl"</span></span>
-<span><span class="co">#&gt; $ loaded              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "2023-11-27T11:39:31.284869834"</span></span>
-<span><span class="co">#&gt; $ updated             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "2023-11-27T11:39:31.284869834"</span></span>
+<span><span class="co">#&gt; $ loaded              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "2023-11-30T14:00:19.698341744"</span></span>
+<span><span class="co">#&gt; $ updated             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "2023-11-30T14:00:19.698341744"</span></span>
 <span><span class="co">#&gt; $ status              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "LOADED"</span></span>
 <span><span class="co">#&gt; $ message             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> ""</span></span>
 <span><span class="co">#&gt; $ version             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "2023-10-19"</span></span>
@@ -236,16 +236,16 @@ detail below) so subsequent use is quick.</p>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 2,734 × 13</span></span></span>
 <span><span class="co">#&gt;    label  obo_id description iri   synonyms annotation   has_children short_form</span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> nonke… CL:00… A nonkerat… http… <span style="color: #949494;">&lt;NULL&gt;</span>   <span style="color: #949494;">&lt;named list&gt;</span> TRUE         CL_0002635</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> nonke… CL:00… A nonkerat… http… <span style="color: #949494;">&lt;NULL&gt;</span>   <span style="color: #949494;">&lt;named list&gt;</span> FALSE        CL_0002636</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> kerat… CL:00… An epithel… http… <span style="color: #949494;">&lt;NULL&gt;</span>   <span style="color: #949494;">&lt;named list&gt;</span> FALSE        CL_0002637</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> bronc… CL:00… A respirat… http… <span style="color: #949494;">&lt;list&gt;</span>   <span style="color: #949494;">&lt;named list&gt;</span> FALSE        CL_0002638</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> amnio… CL:00… An amnioti… http… <span style="color: #949494;">&lt;NULL&gt;</span>   <span style="color: #949494;">&lt;named list&gt;</span> FALSE        CL_0002639</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> amnio… CL:00… An epithel… http… <span style="color: #949494;">&lt;NULL&gt;</span>   <span style="color: #949494;">&lt;named list&gt;</span> FALSE        CL_0002640</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> epith… CL:00… An epithel… http… <span style="color: #949494;">&lt;NULL&gt;</span>   <span style="color: #949494;">&lt;named list&gt;</span> FALSE        CL_0002641</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> epith… CL:00… An epithel… http… <span style="color: #949494;">&lt;NULL&gt;</span>   <span style="color: #949494;">&lt;named list&gt;</span> FALSE        CL_0002642</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> nonke… CL:00… An epithel… http… <span style="color: #949494;">&lt;NULL&gt;</span>   <span style="color: #949494;">&lt;named list&gt;</span> FALSE        CL_0002643</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> endo-… CL:00… An endothe… http… <span style="color: #949494;">&lt;NULL&gt;</span>   <span style="color: #949494;">&lt;named list&gt;</span> FALSE        CL_0002644</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> adren… CL:00… <span style="color: #BB0000;">NA</span>          http… <span style="color: #949494;">&lt;NULL&gt;</span>   <span style="color: #949494;">&lt;named list&gt;</span> FALSE        CL_0000109</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> pepti… CL:00… A neuron t… http… <span style="color: #949494;">&lt;NULL&gt;</span>   <span style="color: #949494;">&lt;named list&gt;</span> FALSE        CL_0000110</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> colum… CL:00… <span style="color: #BB0000;">NA</span>          http… <span style="color: #949494;">&lt;list&gt;</span>   <span style="color: #949494;">&lt;NULL&gt;</span>       FALSE        CL_0000112</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> monon… CL:00… A vertebra… http… <span style="color: #949494;">&lt;NULL&gt;</span>   <span style="color: #949494;">&lt;named list&gt;</span> FALSE        CL_0000113</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> surfa… CL:00… <span style="color: #BB0000;">NA</span>          http… <span style="color: #949494;">&lt;list&gt;</span>   <span style="color: #949494;">&lt;named list&gt;</span> FALSE        CL_0000114</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> endot… CL:00… An endothe… http… <span style="color: #949494;">&lt;list&gt;</span>   <span style="color: #949494;">&lt;named list&gt;</span> TRUE         CL_0000115</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> pione… CL:00… Pioneer ne… http… <span style="color: #949494;">&lt;NULL&gt;</span>   <span style="color: #949494;">&lt;named list&gt;</span> FALSE        CL_0000116</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> CNS n… CL:00… <span style="color: #BB0000;">NA</span>          http… <span style="color: #949494;">&lt;NULL&gt;</span>   <span style="color: #949494;">&lt;NULL&gt;</span>       TRUE         CL_0000117</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> baske… CL:00… Basket cel… http… <span style="color: #949494;">&lt;NULL&gt;</span>   <span style="color: #949494;">&lt;named list&gt;</span> TRUE         CL_0000118</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> cereb… CL:00… Large intr… http… <span style="color: #949494;">&lt;list&gt;</span>   <span style="color: #949494;">&lt;named list&gt;</span> FALSE        CL_0000119</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 2,724 more rows</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 5 more variables: in_subset &lt;list&gt;, obo_definition_citation &lt;list&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   obo_xref &lt;list&gt;, obo_synonym &lt;list&gt;, `_links` &lt;list&gt;</span></span></span></code></pre></div>
@@ -256,19 +256,19 @@ detail below) so subsequent use is quick.</p>
 <span>    <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Rows: 1</span></span>
 <span><span class="co">#&gt; Columns: 13</span></span>
-<span><span class="co">#&gt; $ label                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "nonkeratinized epithelial cell of anal column"</span></span>
-<span><span class="co">#&gt; $ obo_id                  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "CL:0002635"</span></span>
-<span><span class="co">#&gt; $ description             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "A nonkeratinized epithelial cell of the anal …</span></span>
-<span><span class="co">#&gt; $ iri                     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "http://purl.obolibrary.org/obo/CL_0002635"</span></span>
+<span><span class="co">#&gt; $ label                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "adrenergic neuron"</span></span>
+<span><span class="co">#&gt; $ obo_id                  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "CL:0000109"</span></span>
+<span><span class="co">#&gt; $ description             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA</span></span>
+<span><span class="co">#&gt; $ iri                     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "http://purl.obolibrary.org/obo/CL_0000109"</span></span>
 <span><span class="co">#&gt; $ synonyms                <span style="color: #949494; font-style: italic;">&lt;list&gt;</span> &lt;NULL&gt;</span></span>
-<span><span class="co">#&gt; $ annotation              <span style="color: #949494; font-style: italic;">&lt;list&gt;</span> [["https://orcid.org/0000-0003-1980-3228"], ["…</span></span>
-<span><span class="co">#&gt; $ has_children            <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span> TRUE</span></span>
-<span><span class="co">#&gt; $ short_form              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "CL_0002635"</span></span>
+<span><span class="co">#&gt; $ annotation              <span style="color: #949494; font-style: italic;">&lt;list&gt;</span> [["MESH:D059331"]]</span></span>
+<span><span class="co">#&gt; $ has_children            <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span> FALSE</span></span>
+<span><span class="co">#&gt; $ short_form              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "CL_0000109"</span></span>
 <span><span class="co">#&gt; $ in_subset               <span style="color: #949494; font-style: italic;">&lt;list&gt;</span> &lt;NULL&gt;</span></span>
-<span><span class="co">#&gt; $ obo_definition_citation <span style="color: #949494; font-style: italic;">&lt;list&gt;</span> [["A nonkeratinized epithelial cell of the ana…</span></span>
-<span><span class="co">#&gt; $ obo_xref                <span style="color: #949494; font-style: italic;">&lt;list&gt;</span> [["FMA", "263146", &lt;NULL&gt;, "http://purl.org/si…</span></span>
+<span><span class="co">#&gt; $ obo_definition_citation <span style="color: #949494; font-style: italic;">&lt;list&gt;</span> &lt;NULL&gt;</span></span>
+<span><span class="co">#&gt; $ obo_xref                <span style="color: #949494; font-style: italic;">&lt;list&gt;</span> [["MESH", "D059331", &lt;NULL&gt;, "http://id.nlm.ni…</span></span>
 <span><span class="co">#&gt; $ obo_synonym             <span style="color: #949494; font-style: italic;">&lt;list&gt;</span> &lt;NULL&gt;</span></span>
-<span><span class="co">#&gt; $ `_links`                <span style="color: #949494; font-style: italic;">&lt;list&gt;</span> [["https://www.ebi.ac.uk/ols4/api/ontologies/…</span></span></code></pre></div>
+<span><span class="co">#&gt; $ `_links`                <span style="color: #949494; font-style: italic;">&lt;list&gt;</span> [["https://www.ebi.ac.uk/ols4/api/ontologies/c…</span></span></code></pre></div>
 <div class="section level3">
 <h3 id="hierarchical-data">Hierarchical data<a class="anchor" aria-label="anchor" href="#hierarchical-data"></a>
 </h3>
@@ -279,18 +279,18 @@ column</p>
 <code class="sourceCode R"><span><span class="va">terms</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">label</span>, <span class="va">obo_id</span>, <span class="va">in_subset</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 2,734 × 3</span></span></span>
-<span><span class="co">#&gt;    label                                                        obo_id in_subset</span></span>
-<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                                        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> nonkeratinized epithelial cell of anal column                CL:00… <span style="color: #949494;">&lt;NULL&gt;</span>   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> nonkeratinized epithelial cell of inferior part of anal can… CL:00… <span style="color: #949494;">&lt;NULL&gt;</span>   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> keratinized epithelial cell of the anal canal                CL:00… <span style="color: #949494;">&lt;NULL&gt;</span>   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> bronchioalveolar stem cell                                   CL:00… <span style="color: #949494;">&lt;NULL&gt;</span>   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> amniotic stem cell                                           CL:00… <span style="color: #949494;">&lt;NULL&gt;</span>   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> amniotic epithelial stem cell                                CL:00… <span style="color: #949494;">&lt;NULL&gt;</span>   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> epithelial cell of esophageal gland proper                   CL:00… <span style="color: #949494;">&lt;NULL&gt;</span>   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> epithelial cell of esophageal cardiac gland                  CL:00… <span style="color: #949494;">&lt;NULL&gt;</span>   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> nonkeratinized cell of stratum corneum of esophageal epithe… CL:00… <span style="color: #949494;">&lt;NULL&gt;</span>   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> endo-epithelial cell of tympanic part of viscerocranial muc… CL:00… <span style="color: #949494;">&lt;NULL&gt;</span>   </span></span>
+<span><span class="co">#&gt;    label                         obo_id     in_subset </span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>    </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> adrenergic neuron             CL:0000109 <span style="color: #949494;">&lt;NULL&gt;</span>    </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> peptidergic neuron            CL:0000110 <span style="color: #949494;">&lt;NULL&gt;</span>    </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> columnar neuron               CL:0000112 <span style="color: #949494;">&lt;NULL&gt;</span>    </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> mononuclear phagocyte         CL:0000113 <span style="color: #949494;">&lt;list [1]&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> surface ectodermal cell       CL:0000114 <span style="color: #949494;">&lt;NULL&gt;</span>    </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> endothelial cell              CL:0000115 <span style="color: #949494;">&lt;list [1]&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> pioneer neuron                CL:0000116 <span style="color: #949494;">&lt;NULL&gt;</span>    </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> CNS neuron (sensu Vertebrata) CL:0000117 <span style="color: #949494;">&lt;NULL&gt;</span>    </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> basket cell                   CL:0000118 <span style="color: #949494;">&lt;list [1]&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> cerebellar Golgi cell         CL:0000119 <span style="color: #949494;">&lt;NULL&gt;</span>    </span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 2,724 more rows</span></span></span></code></pre></div>
 <p>Individual terms apparently belong to 0 or more subsets.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
@@ -312,18 +312,18 @@ to expand such data.</p>
 <span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">in_subset</span>, <span class="va">obo_id</span>, <span class="va">label</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu">tidyr</span><span class="fu">::</span><span class="fu"><a href="https://tidyr.tidyverse.org/reference/unnest_longer.html" class="external-link">unnest_longer</a></span><span class="op">(</span><span class="va">in_subset</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 710 × 3</span></span></span>
-<span><span class="co">#&gt;    in_subset                   obo_id     label                                 </span></span>
-<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                 </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> human_reference_atlas       CL:0002652 endothelial cell of high endothelial …</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> human_reference_atlas       CL:0002677 naive regulatory T cell               </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> blood_and_immune_upper_slim CL:0002679 natural helper lymphocyte             </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> human_reference_atlas       CL:0004219 A2 amacrine cell                      </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> human_reference_atlas       CL:0004232 starburst amacrine cell               </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> human_reference_atlas       CL:0004252 medium field retinal amacrine cell    </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> human_reference_atlas       CL:0004253 wide field retinal amacrine cell      </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> human_reference_atlas       CL:0005006 ionocyte                              </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> human_reference_atlas       CL:0005019 pancreatic epsilon cell               </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> human_reference_atlas       CL:0008019 mesenchymal cell                      </span></span>
+<span><span class="co">#&gt;    in_subset                     obo_id     label                   </span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> human_reference_atlas         CL:0000113 mononuclear phagocyte   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> human_reference_atlas         CL:0000115 endothelial cell        </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> BDS_subset                    CL:0000118 basket cell             </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> BDS_subset                    CL:0000122 stellate neuron         </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> general_cell_types_upper_slim CL:0000125 glial cell              </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> human_reference_atlas         CL:0000125 glial cell              </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> human_reference_atlas         CL:0000127 astrocyte               </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> human_reference_atlas         CL:0000128 oligodendrocyte         </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> human_reference_atlas         CL:0000129 microglial cell         </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> eye_upper_slim                CL:0000132 corneal endothelial cell</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 700 more rows</span></span></span></code></pre></div>
 <p>Defined subsets and the number of terms in each can be computed
 as</p>
@@ -360,16 +360,16 @@ logical value regardless of input length.</p>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 486 × 13</span></span></span>
 <span><span class="co">#&gt;    label  obo_id description iri   synonyms annotation   has_children short_form</span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> endot… CL:00… A venule e… http… <span style="color: #949494;">&lt;list&gt;</span>   <span style="color: #949494;">&lt;named list&gt;</span> FALSE        CL_0002652</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> naive… CL:00… A regulato… http… <span style="color: #949494;">&lt;list&gt;</span>   <span style="color: #949494;">&lt;named list&gt;</span> TRUE         CL_0002677</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> A2 am… CL:00… A bistrati… http… <span style="color: #949494;">&lt;NULL&gt;</span>   <span style="color: #949494;">&lt;named list&gt;</span> FALSE        CL_0004219</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> starb… CL:00… An amacrin… http… <span style="color: #949494;">&lt;NULL&gt;</span>   <span style="color: #949494;">&lt;named list&gt;</span> FALSE        CL_0004232</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> mediu… CL:00… An amicrin… http… <span style="color: #949494;">&lt;NULL&gt;</span>   <span style="color: #949494;">&lt;named list&gt;</span> TRUE         CL_0004252</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> wide … CL:00… An amicrin… http… <span style="color: #949494;">&lt;NULL&gt;</span>   <span style="color: #949494;">&lt;named list&gt;</span> TRUE         CL_0004253</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> ionoc… CL:00… Specialize… http… <span style="color: #949494;">&lt;NULL&gt;</span>   <span style="color: #949494;">&lt;named list&gt;</span> TRUE         CL_0005006</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> pancr… CL:00… Ghrelin se… http… <span style="color: #949494;">&lt;list&gt;</span>   <span style="color: #949494;">&lt;named list&gt;</span> FALSE        CL_0005019</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> mesen… CL:00… A non-pola… http… <span style="color: #949494;">&lt;list&gt;</span>   <span style="color: #949494;">&lt;named list&gt;</span> TRUE         CL_0008019</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> pancr… CL:00… An endocri… http… <span style="color: #949494;">&lt;NULL&gt;</span>   <span style="color: #949494;">&lt;named list&gt;</span> TRUE         CL_0008024</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> monon… CL:00… A vertebra… http… <span style="color: #949494;">&lt;NULL&gt;</span>   <span style="color: #949494;">&lt;named list&gt;</span> FALSE        CL_0000113</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> endot… CL:00… An endothe… http… <span style="color: #949494;">&lt;list&gt;</span>   <span style="color: #949494;">&lt;named list&gt;</span> TRUE         CL_0000115</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> glial… CL:00… A non-neur… http… <span style="color: #949494;">&lt;list&gt;</span>   <span style="color: #949494;">&lt;named list&gt;</span> TRUE         CL_0000125</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> astro… CL:00… A class of… http… <span style="color: #949494;">&lt;list&gt;</span>   <span style="color: #949494;">&lt;named list&gt;</span> TRUE         CL_0000127</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> oligo… CL:00… A class of… http… <span style="color: #949494;">&lt;list&gt;</span>   <span style="color: #949494;">&lt;named list&gt;</span> TRUE         CL_0000128</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> micro… CL:00… A central … http… <span style="color: #949494;">&lt;list&gt;</span>   <span style="color: #949494;">&lt;named list&gt;</span> TRUE         CL_0000129</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> corne… CL:00… An hexagon… http… <span style="color: #949494;">&lt;NULL&gt;</span>   <span style="color: #949494;">&lt;named list&gt;</span> FALSE        CL_0000132</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> fat c… CL:00… A fat-stor… http… <span style="color: #949494;">&lt;list&gt;</span>   <span style="color: #949494;">&lt;named list&gt;</span> TRUE         CL_0000136</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> simpl… CL:00… <span style="color: #BB0000;">NA</span>          http… <span style="color: #949494;">&lt;NULL&gt;</span>   <span style="color: #949494;">&lt;named list&gt;</span> TRUE         CL_0000146</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> melan… CL:00… A pigment … http… <span style="color: #949494;">&lt;list&gt;</span>   <span style="color: #949494;">&lt;named list&gt;</span> TRUE         CL_0000148</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 476 more rows</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 5 more variables: in_subset &lt;list&gt;, obo_definition_citation &lt;list&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   obo_xref &lt;list&gt;, obo_synonym &lt;list&gt;, `_links` &lt;list&gt;</span></span></span></code></pre></div>
@@ -390,12 +390,12 @@ the <code>"B cell"</code> term.</p>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 6 × 3</span></span></span>
 <span><span class="co">#&gt;   label                                   obo_id     description                </span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                      </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> B cell of appendix                      CL:0009032 A B cell that is located i…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> B cell of medullary sinus of lymph node CL:0009045 A B cell found in the lymp…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> B cell of anorectum                     CL:0009050 A B cell that is located i…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> B cell zone reticular cell              CL:0009104 A fibroblastic reticular c…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> B cell                                  CL:0000236 A lymphocyte of B lineage …</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span> B cell, CD19-positive                   CL:0001201 A B cell that is CD19-posi…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> B cell                                  CL:0000236 A lymphocyte of B lineage …</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> B cell, CD19-positive                   CL:0001201 A B cell that is CD19-posi…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> B cell of appendix                      CL:0009032 A B cell that is located i…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> B cell of medullary sinus of lymph node CL:0009045 A B cell found in the lymp…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> B cell of anorectum                     CL:0009050 A B cell that is located i…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span> B cell zone reticular cell              CL:0009104 A fibroblastic reticular c…</span></span>
 <span><span class="va">b_cell</span> <span class="op">&lt;-</span> <span class="co"># "CL:0000236"</span></span>
 <span>    <span class="va">terms</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">label</span> <span class="op">==</span> <span class="st">"B cell"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
@@ -505,16 +505,16 @@ files in the cache.</p>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 99 × 5</span></span></span>
 <span><span class="co">#&gt;    file         size mtime               ctime               atime              </span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dttm&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;dttm&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;dttm&gt;</span>             </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> 0123b8338… 1.54<span style="color: #949494;">e</span>2 2023-11-29 <span style="color: #949494;">03:34:21</span> 2023-11-29 <span style="color: #949494;">03:34:21</span> 2023-11-29 <span style="color: #949494;">03:34:21</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> 024e25f5e… 9.99<span style="color: #949494;">e</span>2 2023-11-29 <span style="color: #949494;">03:34:24</span> 2023-11-29 <span style="color: #949494;">03:34:24</span> 2023-11-29 <span style="color: #949494;">03:34:24</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> 02cac6ff0… 6.16<span style="color: #949494;">e</span>3 2023-11-29 <span style="color: #949494;">03:32:41</span> 2023-11-29 <span style="color: #949494;">03:32:41</span> 2023-11-29 <span style="color: #949494;">03:32:41</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> 03323f09c… 3.9 <span style="color: #949494;">e</span>3 2023-11-29 <span style="color: #949494;">03:34:09</span> 2023-11-29 <span style="color: #949494;">03:34:09</span> 2023-11-29 <span style="color: #949494;">03:34:09</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> 04d50e3fd… 1.54<span style="color: #949494;">e</span>2 2023-11-29 <span style="color: #949494;">03:34:20</span> 2023-11-29 <span style="color: #949494;">03:34:20</span> 2023-11-29 <span style="color: #949494;">03:34:20</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> 075cb655f… 1.54<span style="color: #949494;">e</span>2 2023-11-29 <span style="color: #949494;">03:34:24</span> 2023-11-29 <span style="color: #949494;">03:34:24</span> 2023-11-29 <span style="color: #949494;">03:34:24</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> 0ac529ac1… 7.02<span style="color: #949494;">e</span>2 2023-11-29 <span style="color: #949494;">03:34:30</span> 2023-11-29 <span style="color: #949494;">03:34:30</span> 2023-11-29 <span style="color: #949494;">03:34:30</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 0e2b8fd8e… 1.10<span style="color: #949494;">e</span>3 2023-11-29 <span style="color: #949494;">03:34:22</span> 2023-11-29 <span style="color: #949494;">03:34:22</span> 2023-11-29 <span style="color: #949494;">03:34:22</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 11c908575… 4.13<span style="color: #949494;">e</span>6 2023-11-29 <span style="color: #949494;">03:34:35</span> 2023-11-29 <span style="color: #949494;">03:34:35</span> 2023-11-29 <span style="color: #949494;">03:34:35</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 13896bf26… 4.31<span style="color: #949494;">e</span>2 2023-11-29 <span style="color: #949494;">03:34:34</span> 2023-11-29 <span style="color: #949494;">03:34:34</span> 2023-11-29 <span style="color: #949494;">03:34:34</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> 03d5b9987d…   808 2023-12-01 <span style="color: #949494;">17:28:56</span> 2023-12-01 <span style="color: #949494;">17:28:56</span> 2023-12-01 <span style="color: #949494;">17:28:56</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> 06f6277f34…   154 2023-12-01 <span style="color: #949494;">17:28:49</span> 2023-12-01 <span style="color: #949494;">17:28:49</span> 2023-12-01 <span style="color: #949494;">17:28:49</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> 09405ddbab…   768 2023-12-01 <span style="color: #949494;">17:28:55</span> 2023-12-01 <span style="color: #949494;">17:28:55</span> 2023-12-01 <span style="color: #949494;">17:28:55</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> 09f0d0cb75…   719 2023-12-01 <span style="color: #949494;">17:28:39</span> 2023-12-01 <span style="color: #949494;">17:28:39</span> 2023-12-01 <span style="color: #949494;">17:28:39</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> 1019c9f790…   154 2023-12-01 <span style="color: #949494;">17:28:50</span> 2023-12-01 <span style="color: #949494;">17:28:50</span> 2023-12-01 <span style="color: #949494;">17:28:50</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> 1152719177… <span style="text-decoration: underline;">12</span>851 2023-12-01 <span style="color: #949494;">17:28:36</span> 2023-12-01 <span style="color: #949494;">17:28:36</span> 2023-12-01 <span style="color: #949494;">17:28:36</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> 13938f8890…  <span style="text-decoration: underline;">6</span>502 2023-12-01 <span style="color: #949494;">17:29:04</span> 2023-12-01 <span style="color: #949494;">17:29:04</span> 2023-12-01 <span style="color: #949494;">17:29:04</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 1d41ffdf45…   154 2023-12-01 <span style="color: #949494;">17:28:54</span> 2023-12-01 <span style="color: #949494;">17:28:54</span> 2023-12-01 <span style="color: #949494;">17:28:54</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 1d4576da3a…  <span style="text-decoration: underline;">1</span>400 2023-12-01 <span style="color: #949494;">17:28:46</span> 2023-12-01 <span style="color: #949494;">17:28:46</span> 2023-12-01 <span style="color: #949494;">17:28:46</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 236f616b89…   154 2023-12-01 <span style="color: #949494;">17:28:47</span> 2023-12-01 <span style="color: #949494;">17:28:47</span> 2023-12-01 <span style="color: #949494;">17:28:47</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 89 more rows</span></span></span></code></pre></div>
 <p>Each file represents the response to a single memoised function call.
 The file name is a hash of the function definition and arguments; it is
@@ -529,16 +529,16 @@ size of files in the cache.</p>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 99 × 5</span></span></span>
 <span><span class="co">#&gt;    file         size mtime               ctime               atime              </span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dttm&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;dttm&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;dttm&gt;</span>             </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> 0123b8338… 1.54<span style="color: #949494;">e</span>2 2023-11-29 <span style="color: #949494;">03:34:21</span> 2023-11-29 <span style="color: #949494;">03:34:21</span> 2023-11-29 <span style="color: #949494;">03:34:21</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> 024e25f5e… 9.99<span style="color: #949494;">e</span>2 2023-11-29 <span style="color: #949494;">03:34:24</span> 2023-11-29 <span style="color: #949494;">03:34:24</span> 2023-11-29 <span style="color: #949494;">03:34:24</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> 02cac6ff0… 6.16<span style="color: #949494;">e</span>3 2023-11-29 <span style="color: #949494;">03:32:41</span> 2023-11-29 <span style="color: #949494;">03:32:41</span> 2023-11-29 <span style="color: #949494;">03:32:41</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> 03323f09c… 3.9 <span style="color: #949494;">e</span>3 2023-11-29 <span style="color: #949494;">03:34:09</span> 2023-11-29 <span style="color: #949494;">03:34:09</span> 2023-11-29 <span style="color: #949494;">03:34:09</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> 04d50e3fd… 1.54<span style="color: #949494;">e</span>2 2023-11-29 <span style="color: #949494;">03:34:20</span> 2023-11-29 <span style="color: #949494;">03:34:20</span> 2023-11-29 <span style="color: #949494;">03:34:20</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> 075cb655f… 1.54<span style="color: #949494;">e</span>2 2023-11-29 <span style="color: #949494;">03:34:24</span> 2023-11-29 <span style="color: #949494;">03:34:24</span> 2023-11-29 <span style="color: #949494;">03:34:24</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> 0ac529ac1… 7.02<span style="color: #949494;">e</span>2 2023-11-29 <span style="color: #949494;">03:34:30</span> 2023-11-29 <span style="color: #949494;">03:34:30</span> 2023-11-29 <span style="color: #949494;">03:34:30</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 0e2b8fd8e… 1.10<span style="color: #949494;">e</span>3 2023-11-29 <span style="color: #949494;">03:34:22</span> 2023-11-29 <span style="color: #949494;">03:34:22</span> 2023-11-29 <span style="color: #949494;">03:34:22</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 11c908575… 4.13<span style="color: #949494;">e</span>6 2023-11-29 <span style="color: #949494;">03:34:35</span> 2023-11-29 <span style="color: #949494;">03:34:35</span> 2023-11-29 <span style="color: #949494;">03:34:35</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 13896bf26… 4.31<span style="color: #949494;">e</span>2 2023-11-29 <span style="color: #949494;">03:34:34</span> 2023-11-29 <span style="color: #949494;">03:34:34</span> 2023-11-29 <span style="color: #949494;">03:34:34</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> 03d5b9987d…   808 2023-12-01 <span style="color: #949494;">17:28:56</span> 2023-12-01 <span style="color: #949494;">17:28:56</span> 2023-12-01 <span style="color: #949494;">17:28:56</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> 06f6277f34…   154 2023-12-01 <span style="color: #949494;">17:28:49</span> 2023-12-01 <span style="color: #949494;">17:28:49</span> 2023-12-01 <span style="color: #949494;">17:28:49</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> 09405ddbab…   768 2023-12-01 <span style="color: #949494;">17:28:55</span> 2023-12-01 <span style="color: #949494;">17:28:55</span> 2023-12-01 <span style="color: #949494;">17:28:55</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> 09f0d0cb75…   719 2023-12-01 <span style="color: #949494;">17:28:39</span> 2023-12-01 <span style="color: #949494;">17:28:39</span> 2023-12-01 <span style="color: #949494;">17:28:39</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> 1019c9f790…   154 2023-12-01 <span style="color: #949494;">17:28:50</span> 2023-12-01 <span style="color: #949494;">17:28:50</span> 2023-12-01 <span style="color: #949494;">17:28:50</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> 1152719177… <span style="text-decoration: underline;">12</span>851 2023-12-01 <span style="color: #949494;">17:28:36</span> 2023-12-01 <span style="color: #949494;">17:28:36</span> 2023-12-01 <span style="color: #949494;">17:28:36</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> 13938f8890…  <span style="text-decoration: underline;">6</span>502 2023-12-01 <span style="color: #949494;">17:29:04</span> 2023-12-01 <span style="color: #949494;">17:29:04</span> 2023-12-01 <span style="color: #949494;">17:29:04</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 1d41ffdf45…   154 2023-12-01 <span style="color: #949494;">17:28:54</span> 2023-12-01 <span style="color: #949494;">17:28:54</span> 2023-12-01 <span style="color: #949494;">17:28:54</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 1d4576da3a…  <span style="text-decoration: underline;">1</span>400 2023-12-01 <span style="color: #949494;">17:28:46</span> 2023-12-01 <span style="color: #949494;">17:28:46</span> 2023-12-01 <span style="color: #949494;">17:28:46</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 236f616b89…   154 2023-12-01 <span style="color: #949494;">17:28:47</span> 2023-12-01 <span style="color: #949494;">17:28:47</span> 2023-12-01 <span style="color: #949494;">17:28:47</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 89 more rows</span></span></span>
 <span></span>
 <span><span class="co">## most recently modified file</span></span>
@@ -548,7 +548,7 @@ size of files in the cache.</p>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 5</span></span></span>
 <span><span class="co">#&gt;   file          size mtime               ctime               atime              </span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dttm&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;dttm&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;dttm&gt;</span>             </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> 374a15c0c73…   154 2023-11-29 <span style="color: #949494;">03:34:38</span> 2023-11-29 <span style="color: #949494;">03:34:38</span> 2023-11-29 <span style="color: #949494;">03:34:38</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> 4e9479c7fcf…   154 2023-12-01 <span style="color: #949494;">17:29:04</span> 2023-12-01 <span style="color: #949494;">17:29:04</span> 2023-12-01 <span style="color: #949494;">17:29:04</span></span></span>
 <span></span>
 <span><span class="co">## total cache size</span></span>
 <span><span class="fu"><a href="../reference/cache.html">cache_info</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
@@ -590,27 +590,26 @@ and individual <code>file</code> names from
 <span><span class="co">#&gt; [1] stats     graphics  grDevices utils     datasets  methods   base     </span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; other attached packages:</span></span>
-<span><span class="co">#&gt; [1] OLSr_0.0.2       dplyr_1.1.4      BiocStyle_2.28.1</span></span>
+<span><span class="co">#&gt; [1] OLSr_0.0.3       dplyr_1.1.4      BiocStyle_2.28.1</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; loaded via a namespace (and not attached):</span></span>
-<span><span class="co">#&gt;  [1] rappdirs_0.3.3       sass_0.4.7           utf8_1.2.4          </span></span>
-<span><span class="co">#&gt;  [4] generics_0.1.3       tidyr_1.3.0          stringi_1.8.1       </span></span>
-<span><span class="co">#&gt;  [7] hms_1.1.3            digest_0.6.33        magrittr_2.0.3      </span></span>
-<span><span class="co">#&gt; [10] evaluate_0.23        bookdown_0.36        fastmap_1.1.1       </span></span>
-<span><span class="co">#&gt; [13] rprojroot_2.0.4      jsonlite_1.8.7       progress_1.2.2      </span></span>
-<span><span class="co">#&gt; [16] BiocManager_1.30.22  purrr_1.0.2          fansi_1.0.5         </span></span>
-<span><span class="co">#&gt; [19] httr2_1.0.0          textshaping_0.3.7    jquerylib_0.1.4     </span></span>
-<span><span class="co">#&gt; [22] cli_3.6.1            rlang_1.1.2          crayon_1.5.2        </span></span>
-<span><span class="co">#&gt; [25] withr_2.5.2          cachem_1.0.8         yaml_2.3.7          </span></span>
-<span><span class="co">#&gt; [28] BiocBaseUtils_1.2.0  tools_4.3.2          memoise_2.0.1       </span></span>
-<span><span class="co">#&gt; [31] curl_5.1.0           vctrs_0.6.4          rjsoncons_1.0.0.9200</span></span>
-<span><span class="co">#&gt; [34] R6_2.5.1             lifecycle_1.0.4      stringr_1.5.1       </span></span>
-<span><span class="co">#&gt; [37] fs_1.6.3             ragg_1.2.6           pkgconfig_2.0.3     </span></span>
-<span><span class="co">#&gt; [40] desc_1.4.2           pkgdown_2.0.7        pillar_1.9.0        </span></span>
-<span><span class="co">#&gt; [43] bslib_0.6.0          glue_1.6.2           systemfonts_1.0.5   </span></span>
-<span><span class="co">#&gt; [46] xfun_0.41            tibble_3.2.1         tidyselect_1.2.0    </span></span>
-<span><span class="co">#&gt; [49] knitr_1.45           htmltools_0.5.7      rmarkdown_2.25      </span></span>
-<span><span class="co">#&gt; [52] compiler_4.3.2       prettyunits_1.2.0</span></span></code></pre></div>
+<span><span class="co">#&gt;  [1] jsonlite_1.8.7       compiler_4.3.2       BiocManager_1.30.22 </span></span>
+<span><span class="co">#&gt;  [4] BiocBaseUtils_1.2.0  tidyselect_1.2.0     stringr_1.5.1       </span></span>
+<span><span class="co">#&gt;  [7] tidyr_1.3.0          jquerylib_0.1.4      systemfonts_1.0.5   </span></span>
+<span><span class="co">#&gt; [10] textshaping_0.3.7    yaml_2.3.7           fastmap_1.1.1       </span></span>
+<span><span class="co">#&gt; [13] R6_2.5.1             rjsoncons_1.0.0.9200 generics_0.1.3      </span></span>
+<span><span class="co">#&gt; [16] curl_5.1.0           httr2_1.0.0          knitr_1.45          </span></span>
+<span><span class="co">#&gt; [19] tibble_3.2.1         bookdown_0.36        desc_1.4.2          </span></span>
+<span><span class="co">#&gt; [22] rprojroot_2.0.4      bslib_0.6.1          pillar_1.9.0        </span></span>
+<span><span class="co">#&gt; [25] rlang_1.1.2          utf8_1.2.4           cachem_1.0.8        </span></span>
+<span><span class="co">#&gt; [28] stringi_1.8.2        xfun_0.41            fs_1.6.3            </span></span>
+<span><span class="co">#&gt; [31] sass_0.4.7           memoise_2.0.1        cli_3.6.1           </span></span>
+<span><span class="co">#&gt; [34] withr_2.5.2          pkgdown_2.0.7        magrittr_2.0.3      </span></span>
+<span><span class="co">#&gt; [37] digest_0.6.33        rappdirs_0.3.3       lifecycle_1.0.4     </span></span>
+<span><span class="co">#&gt; [40] vctrs_0.6.4          evaluate_0.23        glue_1.6.2          </span></span>
+<span><span class="co">#&gt; [43] ragg_1.2.6           fansi_1.0.5          rmarkdown_2.25      </span></span>
+<span><span class="co">#&gt; [46] purrr_1.0.2          tools_4.3.2          pkgconfig_2.0.3     </span></span>
+<span><span class="co">#&gt; [49] htmltools_0.5.7</span></span></code></pre></div>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside>

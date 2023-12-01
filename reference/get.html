@@ -30,7 +30,7 @@ and descedants of a single term."><!-- mathjax --><script src="https://cdnjs.clo
     
     <a class="navbar-brand me-2" href="../index.html">OLSr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.3</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -177,7 +177,7 @@ with 0 rows (and sometimes 0 columns).</p>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">onto</span> <span class="op">&lt;-</span> <span class="fu">get_ontologies</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">onto</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 249 × 31</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 250 × 31</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    id        title          description version numberOfTerms numberOfProperties</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> ado       Alzheimer's D… Alzheimer'… 2.0.1            <span style="text-decoration: underline;">1</span>963                186</span>
@@ -190,7 +190,7 @@ with 0 rows (and sometimes 0 columns).</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> bco       Biological Co… An ontolog… 2021-1…           253                472</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> bfo       Basic Formal … The upper … <span style="color: #BB0000;">NA</span>                 35                 22</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> bspo      Biological Sp… An ontolog… 2023-0…           169                236</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 239 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 240 more rows</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 25 more variables: numberOfIndividuals &lt;int&gt;, languages &lt;list&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   loaded &lt;chr&gt;, updated &lt;chr&gt;, versionIri &lt;chr&gt;, namespace &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   preferredPrefix &lt;chr&gt;, homepage &lt;chr&gt;, mailingList &lt;chr&gt;, tracker &lt;chr&gt;,</span></span>
@@ -206,8 +206,8 @@ with 0 rows (and sometimes 0 columns).</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ languages           <span style="color: #949494; font-style: italic;">&lt;list&gt;</span> "en"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ lang                <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "en"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ ontologyId          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "cl"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ loaded              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "2023-11-27T11:39:31.284869834"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ updated             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "2023-11-27T11:39:31.284869834"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ loaded              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "2023-11-30T14:00:19.698341744"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ updated             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "2023-11-30T14:00:19.698341744"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ status              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "LOADED"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ message             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> ""</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ version             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "2023-10-19"</span>
@@ -239,20 +239,46 @@ with 0 rows (and sometimes 0 columns).</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   obo_xref &lt;list&gt;, obo_synonym &lt;list&gt;, `_links` &lt;list&gt;</span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">terms</span> <span class="op">&lt;-</span> <span class="fu">get_terms</span><span class="op">(</span><span class="st">"cl"</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Querying OLS <span style="color: #00BB00;">■■                              </span>   3% | ETA:  2m</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Querying OLS <span style="color: #00BB00;">■■■■                            </span>   9% | ETA:  1m</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Querying OLS <span style="color: #00BB00;">■■■■■■                          </span>  15% | ETA:  1m</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Querying OLS <span style="color: #00BB00;">■■■■■■                          </span>  18% | ETA:  1m</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Querying OLS <span style="color: #00BB00;">■■■■■■■■                        </span>  24% | ETA:  1m</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Querying OLS <span style="color: #00BB00;">■■■■■■■■■■                      </span>  30% | ETA: 45s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Querying OLS <span style="color: #00BB00;">■■■■■■■■■■■■                    </span>  36% | ETA: 40s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Querying OLS <span style="color: #00BB00;">■■■■■■■■■■■■■                   </span>  39% | ETA: 38s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Querying OLS <span style="color: #00BB00;">■■■■■■■■■■■■■■■                 </span>  45% | ETA: 35s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Querying OLS <span style="color: #00BB00;">■■■■■■■■■■■■■■■■                </span>  48% | ETA: 33s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Querying OLS <span style="color: #00BB00;">■■■■■■■■■■■■■■■■                </span>  52% | ETA: 32s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Querying OLS <span style="color: #00BB00;">■■■■■■■■■■■■■■■■■■              </span>  58% | ETA: 29s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Querying OLS <span style="color: #00BB00;">■■■■■■■■■■■■■■■■■■■             </span>  61% | ETA: 27s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Querying OLS <span style="color: #00BB00;">■■■■■■■■■■■■■■■■■■■■            </span>  64% | ETA: 25s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Querying OLS <span style="color: #00BB00;">■■■■■■■■■■■■■■■■■■■■■           </span>  67% | ETA: 23s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Querying OLS <span style="color: #00BB00;">■■■■■■■■■■■■■■■■■■■■■■          </span>  70% | ETA: 21s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Querying OLS <span style="color: #00BB00;">■■■■■■■■■■■■■■■■■■■■■■■         </span>  73% | ETA: 20s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Querying OLS <span style="color: #00BB00;">■■■■■■■■■■■■■■■■■■■■■■■■        </span>  76% | ETA: 19s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Querying OLS <span style="color: #00BB00;">■■■■■■■■■■■■■■■■■■■■■■■■■       </span>  79% | ETA: 17s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Querying OLS <span style="color: #00BB00;">■■■■■■■■■■■■■■■■■■■■■■■■■■      </span>  82% | ETA: 15s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Querying OLS <span style="color: #00BB00;">■■■■■■■■■■■■■■■■■■■■■■■■■■      </span>  85% | ETA: 13s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Querying OLS <span style="color: #00BB00;">■■■■■■■■■■■■■■■■■■■■■■■■■■■     </span>  88% | ETA: 11s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Querying OLS <span style="color: #00BB00;">■■■■■■■■■■■■■■■■■■■■■■■■■■■■    </span>  91% | ETA:  8s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Querying OLS <span style="color: #00BB00;">■■■■■■■■■■■■■■■■■■■■■■■■■■■■■   </span>  94% | ETA:  5s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Querying OLS <span style="color: #00BB00;">■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■  </span>  97% | ETA:  3s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Querying OLS <span style="color: #00BB00;">■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ </span> 100% | ETA:  0s</span>
 <span class="r-in"><span><span class="va">terms</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 2,734 × 13</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    label  obo_id description iri   synonyms annotation   has_children short_form</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> nonke… CL:00… A nonkerat… http… <span style="color: #949494;">&lt;NULL&gt;</span>   <span style="color: #949494;">&lt;named list&gt;</span> TRUE         CL_0002635</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> nonke… CL:00… A nonkerat… http… <span style="color: #949494;">&lt;NULL&gt;</span>   <span style="color: #949494;">&lt;named list&gt;</span> FALSE        CL_0002636</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> kerat… CL:00… An epithel… http… <span style="color: #949494;">&lt;NULL&gt;</span>   <span style="color: #949494;">&lt;named list&gt;</span> FALSE        CL_0002637</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> bronc… CL:00… A respirat… http… <span style="color: #949494;">&lt;list&gt;</span>   <span style="color: #949494;">&lt;named list&gt;</span> FALSE        CL_0002638</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> amnio… CL:00… An amnioti… http… <span style="color: #949494;">&lt;NULL&gt;</span>   <span style="color: #949494;">&lt;named list&gt;</span> FALSE        CL_0002639</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> amnio… CL:00… An epithel… http… <span style="color: #949494;">&lt;NULL&gt;</span>   <span style="color: #949494;">&lt;named list&gt;</span> FALSE        CL_0002640</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> epith… CL:00… An epithel… http… <span style="color: #949494;">&lt;NULL&gt;</span>   <span style="color: #949494;">&lt;named list&gt;</span> FALSE        CL_0002641</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> epith… CL:00… An epithel… http… <span style="color: #949494;">&lt;NULL&gt;</span>   <span style="color: #949494;">&lt;named list&gt;</span> FALSE        CL_0002642</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> nonke… CL:00… An epithel… http… <span style="color: #949494;">&lt;NULL&gt;</span>   <span style="color: #949494;">&lt;named list&gt;</span> FALSE        CL_0002643</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> endo-… CL:00… An endothe… http… <span style="color: #949494;">&lt;NULL&gt;</span>   <span style="color: #949494;">&lt;named list&gt;</span> FALSE        CL_0002644</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> adren… CL:00… <span style="color: #BB0000;">NA</span>          http… <span style="color: #949494;">&lt;NULL&gt;</span>   <span style="color: #949494;">&lt;named list&gt;</span> FALSE        CL_0000109</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> pepti… CL:00… A neuron t… http… <span style="color: #949494;">&lt;NULL&gt;</span>   <span style="color: #949494;">&lt;named list&gt;</span> FALSE        CL_0000110</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> colum… CL:00… <span style="color: #BB0000;">NA</span>          http… <span style="color: #949494;">&lt;list&gt;</span>   <span style="color: #949494;">&lt;NULL&gt;</span>       FALSE        CL_0000112</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> monon… CL:00… A vertebra… http… <span style="color: #949494;">&lt;NULL&gt;</span>   <span style="color: #949494;">&lt;named list&gt;</span> FALSE        CL_0000113</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> surfa… CL:00… <span style="color: #BB0000;">NA</span>          http… <span style="color: #949494;">&lt;list&gt;</span>   <span style="color: #949494;">&lt;named list&gt;</span> FALSE        CL_0000114</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> endot… CL:00… An endothe… http… <span style="color: #949494;">&lt;list&gt;</span>   <span style="color: #949494;">&lt;named list&gt;</span> TRUE         CL_0000115</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> pione… CL:00… Pioneer ne… http… <span style="color: #949494;">&lt;NULL&gt;</span>   <span style="color: #949494;">&lt;named list&gt;</span> FALSE        CL_0000116</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> CNS n… CL:00… <span style="color: #BB0000;">NA</span>          http… <span style="color: #949494;">&lt;NULL&gt;</span>   <span style="color: #949494;">&lt;NULL&gt;</span>       TRUE         CL_0000117</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> baske… CL:00… Basket cel… http… <span style="color: #949494;">&lt;NULL&gt;</span>   <span style="color: #949494;">&lt;named list&gt;</span> TRUE         CL_0000118</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> cereb… CL:00… Large intr… http… <span style="color: #949494;">&lt;list&gt;</span>   <span style="color: #949494;">&lt;named list&gt;</span> FALSE        CL_0000119</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 2,724 more rows</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 5 more variables: in_subset &lt;list&gt;, obo_definition_citation &lt;list&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   obo_xref &lt;list&gt;, obo_synonym &lt;list&gt;, `_links` &lt;list&gt;</span></span>
