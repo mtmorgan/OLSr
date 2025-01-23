@@ -1,36 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://mtmorgan.github.io/OLSr/404.html</loc>
-  </url>
-  <url>
-    <loc>https://mtmorgan.github.io/OLSr/articles/a_introduction.html</loc>
-  </url>
-  <url>
-    <loc>https://mtmorgan.github.io/OLSr/articles/b_case_study_cxg.html</loc>
-  </url>
-  <url>
-    <loc>https://mtmorgan.github.io/OLSr/articles/index.html</loc>
-  </url>
-  <url>
-    <loc>https://mtmorgan.github.io/OLSr/authors.html</loc>
-  </url>
-  <url>
-    <loc>https://mtmorgan.github.io/OLSr/index.html</loc>
-  </url>
-  <url>
-    <loc>https://mtmorgan.github.io/OLSr/news/index.html</loc>
-  </url>
-  <url>
-    <loc>https://mtmorgan.github.io/OLSr/reference/cache.html</loc>
-  </url>
-  <url>
-    <loc>https://mtmorgan.github.io/OLSr/reference/get.html</loc>
-  </url>
-  <url>
-    <loc>https://mtmorgan.github.io/OLSr/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>https://mtmorgan.github.io/OLSr/reference/olsr_graph.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://mtmorgan.github.io/OLSr/404.html</loc></url>
+<url><loc>https://mtmorgan.github.io/OLSr/articles/a_introduction.html</loc></url>
+<url><loc>https://mtmorgan.github.io/OLSr/articles/b_case_study_cxg.html</loc></url>
+<url><loc>https://mtmorgan.github.io/OLSr/articles/index.html</loc></url>
+<url><loc>https://mtmorgan.github.io/OLSr/authors.html</loc></url>
+<url><loc>https://mtmorgan.github.io/OLSr/index.html</loc></url>
+<url><loc>https://mtmorgan.github.io/OLSr/news/index.html</loc></url>
+<url><loc>https://mtmorgan.github.io/OLSr/reference/cache.html</loc></url>
+<url><loc>https://mtmorgan.github.io/OLSr/reference/get.html</loc></url>
+<url><loc>https://mtmorgan.github.io/OLSr/reference/index.html</loc></url>
+<url><loc>https://mtmorgan.github.io/OLSr/reference/olsr_graph.html</loc></url>
 </urlset>
+
