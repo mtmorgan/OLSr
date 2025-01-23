@@ -1,3 +1,8 @@
+# OLSr 0.0.4
+
+- (0.0.4) Housekeeping: use `glue_data()` when substitutions do not
+  come from an environment (required by glue 1.8.0).
+
 # OSLr 0.0.3
 
 - (0.0.3) Housekeeping: add `cache_summary()`, standardize progress

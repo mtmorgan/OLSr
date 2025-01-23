@@ -1,6 +1,6 @@
 Package: OLSr
 Title: Retrieving Information from the 'EBI' Ontology Lookup Service ('OLS')
-Version: 0.0.3
+Version: 0.0.4
 Authors@R:
     c(person(
         "Martin", "Morgan", role = c("aut", "cre"),
@@ -37,7 +37,7 @@ Imports:
     spdl
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.2
 Suggests:
     igraph,
     visNetwork,
